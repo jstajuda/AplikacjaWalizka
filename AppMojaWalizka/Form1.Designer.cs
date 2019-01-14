@@ -32,7 +32,7 @@
             this.plec = new System.Windows.Forms.GroupBox();
             this.poraRoku = new System.Windows.Forms.GroupBox();
             this.rodzajWyjazdu = new System.Windows.Forms.GroupBox();
-            this.generujListe = new System.Windows.Forms.Button();
+            this.akcjeGenerujListe = new System.Windows.Forms.Button();
             this.plecKobieta = new System.Windows.Forms.RadioButton();
             this.plecMezczyzna = new System.Windows.Forms.RadioButton();
             this.lato = new System.Windows.Forms.RadioButton();
@@ -47,11 +47,22 @@
             this.rodzajWyjazduWakacjeNadWoda = new System.Windows.Forms.RadioButton();
             this.rodzajWyjazduWakacjeMiasto = new System.Windows.Forms.RadioButton();
             this.listView1 = new System.Windows.Forms.ListView();
+            this.liczbaPorzadkowa = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.doWziecia = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.akcje = new System.Windows.Forms.GroupBox();
+            this.akcjeDrukuj = new System.Windows.Forms.Button();
+            this.lista = new System.Windows.Forms.GroupBox();
+            this.listaDodaj = new System.Windows.Forms.Button();
+            this.listaUsun = new System.Windows.Forms.Button();
+            this.akcjeEksportujDoCSV = new System.Windows.Forms.Button();
+            this.akcjeImportujZCSV = new System.Windows.Forms.Button();
             this.parametry.SuspendLayout();
             this.plec.SuspendLayout();
             this.poraRoku.SuspendLayout();
             this.rodzajWyjazdu.SuspendLayout();
             this.nocleg.SuspendLayout();
+            this.akcje.SuspendLayout();
+            this.lista.SuspendLayout();
             this.SuspendLayout();
             // 
             // parametry
@@ -104,14 +115,14 @@
             this.rodzajWyjazdu.TabStop = false;
             this.rodzajWyjazdu.Text = "Rodzaj wyjazdu";
             // 
-            // generujListe
+            // akcjeGenerujListe
             // 
-            this.generujListe.Location = new System.Drawing.Point(14, 145);
-            this.generujListe.Name = "generujListe";
-            this.generujListe.Size = new System.Drawing.Size(265, 29);
-            this.generujListe.TabIndex = 2;
-            this.generujListe.Text = "Generuj listę predefiniowaną";
-            this.generujListe.UseVisualStyleBackColor = true;
+            this.akcjeGenerujListe.Location = new System.Drawing.Point(12, 19);
+            this.akcjeGenerujListe.Name = "akcjeGenerujListe";
+            this.akcjeGenerujListe.Size = new System.Drawing.Size(181, 29);
+            this.akcjeGenerujListe.TabIndex = 2;
+            this.akcjeGenerujListe.Text = "Generuj listę predefiniowaną";
+            this.akcjeGenerujListe.UseVisualStyleBackColor = true;
             // 
             // plecKobieta
             // 
@@ -258,19 +269,102 @@
             // 
             // listView1
             // 
-            this.listView1.Location = new System.Drawing.Point(12, 194);
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.liczbaPorzadkowa,
+            this.doWziecia});
+            this.listView1.Location = new System.Drawing.Point(12, 19);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(648, 177);
+            this.listView1.Size = new System.Drawing.Size(541, 177);
             this.listView1.TabIndex = 3;
             this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            // 
+            // liczbaPorzadkowa
+            // 
+            this.liczbaPorzadkowa.Text = "Lp";
+            // 
+            // doWziecia
+            // 
+            this.doWziecia.Text = "Do wzięcia";
+            this.doWziecia.Width = 290;
+            // 
+            // akcje
+            // 
+            this.akcje.Controls.Add(this.akcjeImportujZCSV);
+            this.akcje.Controls.Add(this.akcjeEksportujDoCSV);
+            this.akcje.Controls.Add(this.akcjeDrukuj);
+            this.akcje.Controls.Add(this.akcjeGenerujListe);
+            this.akcje.Location = new System.Drawing.Point(12, 157);
+            this.akcje.Name = "akcje";
+            this.akcje.Size = new System.Drawing.Size(648, 63);
+            this.akcje.TabIndex = 4;
+            this.akcje.TabStop = false;
+            this.akcje.Text = "Akcje";
+            // 
+            // akcjeDrukuj
+            // 
+            this.akcjeDrukuj.Location = new System.Drawing.Point(201, 19);
+            this.akcjeDrukuj.Name = "akcjeDrukuj";
+            this.akcjeDrukuj.Size = new System.Drawing.Size(110, 29);
+            this.akcjeDrukuj.TabIndex = 2;
+            this.akcjeDrukuj.Text = "Drukuj";
+            this.akcjeDrukuj.UseVisualStyleBackColor = true;
+            // 
+            // lista
+            // 
+            this.lista.Controls.Add(this.listaUsun);
+            this.lista.Controls.Add(this.listaDodaj);
+            this.lista.Controls.Add(this.listView1);
+            this.lista.Location = new System.Drawing.Point(12, 241);
+            this.lista.Name = "lista";
+            this.lista.Size = new System.Drawing.Size(647, 214);
+            this.lista.TabIndex = 5;
+            this.lista.TabStop = false;
+            this.lista.Text = "Lista";
+            // 
+            // listaDodaj
+            // 
+            this.listaDodaj.Location = new System.Drawing.Point(566, 21);
+            this.listaDodaj.Name = "listaDodaj";
+            this.listaDodaj.Size = new System.Drawing.Size(75, 27);
+            this.listaDodaj.TabIndex = 4;
+            this.listaDodaj.Text = "Dodaj";
+            this.listaDodaj.UseVisualStyleBackColor = true;
+            // 
+            // listaUsun
+            // 
+            this.listaUsun.Location = new System.Drawing.Point(567, 54);
+            this.listaUsun.Name = "listaUsun";
+            this.listaUsun.Size = new System.Drawing.Size(75, 27);
+            this.listaUsun.TabIndex = 4;
+            this.listaUsun.Text = "Usuń";
+            this.listaUsun.UseVisualStyleBackColor = true;
+            // 
+            // akcjeEksportujDoCSV
+            // 
+            this.akcjeEksportujDoCSV.Location = new System.Drawing.Point(317, 19);
+            this.akcjeEksportujDoCSV.Name = "akcjeEksportujDoCSV";
+            this.akcjeEksportujDoCSV.Size = new System.Drawing.Size(110, 29);
+            this.akcjeEksportujDoCSV.TabIndex = 2;
+            this.akcjeEksportujDoCSV.Text = "Eksportuj do csv";
+            this.akcjeEksportujDoCSV.UseVisualStyleBackColor = true;
+            // 
+            // akcjeImportujZCSV
+            // 
+            this.akcjeImportujZCSV.Location = new System.Drawing.Point(433, 19);
+            this.akcjeImportujZCSV.Name = "akcjeImportujZCSV";
+            this.akcjeImportujZCSV.Size = new System.Drawing.Size(110, 29);
+            this.akcjeImportujZCSV.TabIndex = 2;
+            this.akcjeImportujZCSV.Text = "Importuj z csv";
+            this.akcjeImportujZCSV.UseVisualStyleBackColor = true;
             // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(684, 383);
-            this.Controls.Add(this.listView1);
-            this.Controls.Add(this.generujListe);
+            this.ClientSize = new System.Drawing.Size(684, 465);
+            this.Controls.Add(this.lista);
+            this.Controls.Add(this.akcje);
             this.Controls.Add(this.parametry);
             this.Name = "main";
             this.Text = "Moja walizka";
@@ -283,6 +377,8 @@
             this.rodzajWyjazdu.PerformLayout();
             this.nocleg.ResumeLayout(false);
             this.nocleg.PerformLayout();
+            this.akcje.ResumeLayout(false);
+            this.lista.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -292,7 +388,7 @@
         private System.Windows.Forms.GroupBox rodzajWyjazdu;
         private System.Windows.Forms.GroupBox poraRoku;
         private System.Windows.Forms.GroupBox plec;
-        private System.Windows.Forms.Button generujListe;
+        private System.Windows.Forms.Button akcjeGenerujListe;
         private System.Windows.Forms.RadioButton poraRokuWiosnaJesien;
         private System.Windows.Forms.RadioButton zima;
         private System.Windows.Forms.RadioButton lato;
@@ -307,6 +403,15 @@
         private System.Windows.Forms.RadioButton rodzajWyjazduWakacjeGory;
         private System.Windows.Forms.RadioButton rodzajWyjazduSluzbowy;
         private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ColumnHeader liczbaPorzadkowa;
+        private System.Windows.Forms.ColumnHeader doWziecia;
+        private System.Windows.Forms.GroupBox akcje;
+        private System.Windows.Forms.Button akcjeDrukuj;
+        private System.Windows.Forms.GroupBox lista;
+        private System.Windows.Forms.Button listaUsun;
+        private System.Windows.Forms.Button listaDodaj;
+        private System.Windows.Forms.Button akcjeImportujZCSV;
+        private System.Windows.Forms.Button akcjeEksportujDoCSV;
     }
 }
 
