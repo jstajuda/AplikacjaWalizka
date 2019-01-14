@@ -1,0 +1,3 @@
+# <b>AplikacjaWalizka</b>
+
+Celem działania jest sporządzenie listy rzeczy potrzebnych na wyjazd. Powinna umożliwić wybór rodzaju wyjazdu (służbowy/wakacyjny itd.) pory roku i kuilku innych parametrów w celu utworzenia predefiniowanej listy przedmiotów, które powinny się na niej znaleźć. Przedmiot z listy predefiniowanej powinien być możliwy do usunięcia, tak aby pozostały na niej tylko potrzebne rzeczy. Końcowym efektem powinno być wygenerowanie dokumentu PDF z gotową do wydruku listą rzeczy. Możliwy powinien być także eksport swojej listy oraz import z pliku tekstowego w celu łatwego odtworzenia listy, z której użytkownik już wcześniej korzystał.
