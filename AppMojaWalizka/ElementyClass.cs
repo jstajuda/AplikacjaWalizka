@@ -8,6 +8,8 @@ namespace AppMojaWalizka
 {
     public class ElementyClass
     {
-        public string Element { get; set; }
+        public string Nazwa { get; set; }
+        public bool CzyWziac { get; set; }
+        public string Kategoria { get; set; }
     }
 }

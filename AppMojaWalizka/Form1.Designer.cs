@@ -52,13 +52,14 @@
             this.akcjeEksportujDoCSV = new System.Windows.Forms.Button();
             this.akcjeDrukuj = new System.Windows.Forms.Button();
             this.lista = new System.Windows.Forms.GroupBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnEdytuj = new System.Windows.Forms.Button();
             this.btnUsun = new System.Windows.Forms.Button();
             this.btnDodaj = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.colLp = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnEdytuj = new System.Windows.Forms.Button();
-            this.elementDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.elementyClassBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.nazwaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kategoriaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.czyWziacDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.parametry.SuspendLayout();
             this.nocleg.SuspendLayout();
             this.rodzajWyjazdu.SuspendLayout();
@@ -325,6 +326,31 @@
             this.lista.TabStop = false;
             this.lista.Text = "Lista";
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.nazwaDataGridViewTextBoxColumn,
+            this.kategoriaDataGridViewTextBoxColumn,
+            this.czyWziacDataGridViewCheckBoxColumn});
+            this.dataGridView1.DataSource = this.elementyClassBindingSource;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 21);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(531, 187);
+            this.dataGridView1.TabIndex = 5;
+            // 
+            // btnEdytuj
+            // 
+            this.btnEdytuj.Location = new System.Drawing.Point(566, 54);
+            this.btnEdytuj.Name = "btnEdytuj";
+            this.btnEdytuj.Size = new System.Drawing.Size(75, 27);
+            this.btnEdytuj.TabIndex = 4;
+            this.btnEdytuj.Text = "Edytuj";
+            this.btnEdytuj.UseVisualStyleBackColor = true;
+            this.btnEdytuj.Click += new System.EventHandler(this.btnEdytuj_Click);
+            // 
             // btnUsun
             // 
             this.btnUsun.Location = new System.Drawing.Point(566, 87);
@@ -344,46 +370,27 @@
             this.btnDodaj.UseVisualStyleBackColor = true;
             this.btnDodaj.Click += new System.EventHandler(this.listaDodaj_Click);
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colLp,
-            this.elementDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.elementyClassBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 21);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(531, 187);
-            this.dataGridView1.TabIndex = 5;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // colLp
-            // 
-            this.colLp.HeaderText = "Lp.";
-            this.colLp.Name = "colLp";
-            // 
-            // btnEdytuj
-            // 
-            this.btnEdytuj.Location = new System.Drawing.Point(566, 54);
-            this.btnEdytuj.Name = "btnEdytuj";
-            this.btnEdytuj.Size = new System.Drawing.Size(75, 27);
-            this.btnEdytuj.TabIndex = 4;
-            this.btnEdytuj.Text = "Edytuj";
-            this.btnEdytuj.UseVisualStyleBackColor = true;
-            this.btnEdytuj.Click += new System.EventHandler(this.btnEdytuj_Click);
-            // 
-            // elementDataGridViewTextBoxColumn
-            // 
-            this.elementDataGridViewTextBoxColumn.DataPropertyName = "Element";
-            this.elementDataGridViewTextBoxColumn.HeaderText = "Element";
-            this.elementDataGridViewTextBoxColumn.Name = "elementDataGridViewTextBoxColumn";
-            this.elementDataGridViewTextBoxColumn.Width = 350;
-            // 
             // elementyClassBindingSource
             // 
             this.elementyClassBindingSource.DataSource = typeof(AppMojaWalizka.ElementyClass);
+            // 
+            // nazwaDataGridViewTextBoxColumn
+            // 
+            this.nazwaDataGridViewTextBoxColumn.DataPropertyName = "Nazwa";
+            this.nazwaDataGridViewTextBoxColumn.HeaderText = "Nazwa";
+            this.nazwaDataGridViewTextBoxColumn.Name = "nazwaDataGridViewTextBoxColumn";
+            // 
+            // kategoriaDataGridViewTextBoxColumn
+            // 
+            this.kategoriaDataGridViewTextBoxColumn.DataPropertyName = "Kategoria";
+            this.kategoriaDataGridViewTextBoxColumn.HeaderText = "Kategoria";
+            this.kategoriaDataGridViewTextBoxColumn.Name = "kategoriaDataGridViewTextBoxColumn";
+            // 
+            // czyWziacDataGridViewCheckBoxColumn
+            // 
+            this.czyWziacDataGridViewCheckBoxColumn.DataPropertyName = "CzyWziac";
+            this.czyWziacDataGridViewCheckBoxColumn.HeaderText = "Czy wziąć";
+            this.czyWziacDataGridViewCheckBoxColumn.Name = "czyWziacDataGridViewCheckBoxColumn";
             // 
             // FormGlowny
             // 
@@ -440,9 +447,11 @@
         private System.Windows.Forms.Button akcjeEksportujDoCSV;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.BindingSource elementyClassBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colLp;
         private System.Windows.Forms.DataGridViewTextBoxColumn elementDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button btnEdytuj;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nazwaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn kategoriaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn czyWziacDataGridViewCheckBoxColumn;
     }
 }
 

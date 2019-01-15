@@ -10,26 +10,35 @@ using System.Windows.Forms;
 
 namespace AppMojaWalizka
 {
+    
+
     public partial class FormDodaj : Form
     {
-        public ElementyClass Nazwa { get; set; }
+        
+        public ElementyClass elem { get; set; }
 
         public FormDodaj()
         {
             InitializeComponent();
+            cmbKategoria.DataSource = Enum.GetValues(typeof(EnumKategoria.Kategoria));
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Nazwa.Element = txtNazwa.Text;
+            elem.Nazwa = txtNazwa.Text;
+            elem.CzyWziac = true;
+            elem.Kategoria = cmbKategoria.Text;
         }
 
         private void FormDodaj_Load(object sender, EventArgs e)
         {
-            if(Nazwa != null)
+            if(elem != null)
             {
-                txtNazwa.Text = Nazwa.Element;
+                txtNazwa.Text = elem.Nazwa;
+                cmbKategoria.Text = elem.Kategoria;
             }
         }
+
+
     }
 }

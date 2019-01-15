@@ -12,7 +12,6 @@ namespace AppMojaWalizka
 {
     public partial class FormGlowny : Form
     {
-
         public FormGlowny()
         {
             InitializeComponent();
@@ -20,32 +19,28 @@ namespace AppMojaWalizka
 
         private void listaDodaj_Click(object sender, EventArgs e)
         {
-            using (FormDodaj d = new FormDodaj() { Nazwa = new ElementyClass()})
+            using (FormDodaj d = new FormDodaj() { elem = new ElementyClass()})
             {
                 if (d.ShowDialog() == DialogResult.OK)
-                    elementyClassBindingSource.Add(d.Nazwa);
+                    elementyClassBindingSource.Add(d.elem);
             }
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void btnEdytuj_Click(object sender, EventArgs e)
         {
-            ElementyClass elem = elementyClassBindingSource.Current as ElementyClass;
-            if(elem != null)
+            ElementyClass element = elementyClassBindingSource.Current as ElementyClass;
+            if(element != null)
             {
-                using(FormDodaj f = new FormDodaj() { Nazwa = elem })
+                using(FormDodaj f = new FormDodaj() { elem = element })
                 {
                     if(f.ShowDialog() == DialogResult.OK)
                     {
                         elementyClassBindingSource.EndEdit();
-                        btnEdytuj.Focus();
+                        btnEdytuj.Show();
                     }
                 }
             }
         }
+
     }
 }
