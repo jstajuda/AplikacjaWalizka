@@ -56,10 +56,10 @@
             this.btnEdytuj = new System.Windows.Forms.Button();
             this.btnUsun = new System.Windows.Forms.Button();
             this.btnDodaj = new System.Windows.Forms.Button();
-            this.elementyClassBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nazwaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kategoriaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.czyWziacDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.elementyClassBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.parametry.SuspendLayout();
             this.nocleg.SuspendLayout();
             this.rodzajWyjazdu.SuspendLayout();
@@ -303,6 +303,7 @@
             this.akcjeEksportujDoCSV.TabIndex = 2;
             this.akcjeEksportujDoCSV.Text = "Eksportuj do csv";
             this.akcjeEksportujDoCSV.UseVisualStyleBackColor = true;
+            this.akcjeEksportujDoCSV.Click += new System.EventHandler(this.akcjeEksportujDoCSV_Click);
             // 
             // akcjeDrukuj
             // 
@@ -359,6 +360,7 @@
             this.btnUsun.TabIndex = 4;
             this.btnUsun.Text = "Usuń";
             this.btnUsun.UseVisualStyleBackColor = true;
+            this.btnUsun.Click += new System.EventHandler(this.btnUsun_Click);
             // 
             // btnDodaj
             // 
@@ -369,10 +371,6 @@
             this.btnDodaj.Text = "Dodaj";
             this.btnDodaj.UseVisualStyleBackColor = true;
             this.btnDodaj.Click += new System.EventHandler(this.listaDodaj_Click);
-            // 
-            // elementyClassBindingSource
-            // 
-            this.elementyClassBindingSource.DataSource = typeof(AppMojaWalizka.ElementyClass);
             // 
             // nazwaDataGridViewTextBoxColumn
             // 
@@ -391,6 +389,10 @@
             this.czyWziacDataGridViewCheckBoxColumn.DataPropertyName = "CzyWziac";
             this.czyWziacDataGridViewCheckBoxColumn.HeaderText = "Czy wziąć";
             this.czyWziacDataGridViewCheckBoxColumn.Name = "czyWziacDataGridViewCheckBoxColumn";
+            // 
+            // elementyClassBindingSource
+            // 
+            this.elementyClassBindingSource.DataSource = typeof(AppMojaWalizka.ElementyClass);
             // 
             // FormGlowny
             // 

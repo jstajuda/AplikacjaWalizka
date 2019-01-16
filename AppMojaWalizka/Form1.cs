@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+
 
 namespace AppMojaWalizka
 {
@@ -40,6 +42,40 @@ namespace AppMojaWalizka
                     }
                 }
             }
+        }
+
+        private void btnUsun_Click(object sender, EventArgs e)
+        {
+            foreach(DataGridViewRow row in dataGridView1.SelectedRows)
+            {
+                dataGridView1.Rows.Remove(row);
+            }
+        }
+        /*
+        struct DataParameter
+        {
+            public List<DataGridView> ListaRzeczy;
+            public string NazwaPliku { get; set; }
+        }
+
+        DataParameter _inputParameter;
+        */
+        private void akcjeEksportujDoCSV_Click(object sender, EventArgs e)   
+        {/*
+            using(SaveFileDialog sfd = new SaveFileDialog() { Filter = "CSV|*.csv", ValidateNames = true })
+            {
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    //_inputParameter.ListaRzeczy = elementyClassBindingSource.DataSource as List<DataGridView>;
+                    //_inputParameter.NazwaPliku = sfd.FileName;
+                    using (Stream s = File.Open(sfd.FileName, FileMode.CreateNew)) 
+                    using(StreamWriter sw = new StreamWriter(s))
+                    {
+                        sw.Write(dataGridView1.Rows);
+                    }
+
+                }
+            }*/
         }
 
     }
