@@ -51,32 +51,80 @@ namespace AppMojaWalizka
                 dataGridView1.Rows.Remove(row);
             }
         }
-        /*
-        struct DataParameter
+        private void SaveToCSV(DataGridView DGV)
         {
-            public List<DataGridView> ListaRzeczy;
-            public string NazwaPliku { get; set; }
-        }
-
-        DataParameter _inputParameter;
-        */
-        private void akcjeEksportujDoCSV_Click(object sender, EventArgs e)   
-        {/*
-            using(SaveFileDialog sfd = new SaveFileDialog() { Filter = "CSV|*.csv", ValidateNames = true })
+            string filename = "";
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "CSV (*.csv)|*.csv";
+            sfd.FileName = "Output.csv";
+            if (sfd.ShowDialog() == DialogResult.OK)
             {
-                if (sfd.ShowDialog() == DialogResult.OK)
+                if (File.Exists(filename))
                 {
-                    //_inputParameter.ListaRzeczy = elementyClassBindingSource.DataSource as List<DataGridView>;
-                    //_inputParameter.NazwaPliku = sfd.FileName;
-                    using (Stream s = File.Open(sfd.FileName, FileMode.CreateNew)) 
-                    using(StreamWriter sw = new StreamWriter(s))
+                    try
                     {
-                        sw.Write(dataGridView1.Rows);
+                        File.Delete(filename);
                     }
-
+                    catch (IOException ex)
+                    {
+                        MessageBox.Show("It wasn't possible to write the data to the disk." + ex.Message);
+                    }
                 }
-            }*/
+                int columnCount = DGV.ColumnCount;
+                string columnNames = "";
+                string[] output = new string[DGV.RowCount + 1];
+                for (int i = 0; i < columnCount; i++)
+                {
+                    if (i < columnCount - 1)
+                    {
+                        columnNames += DGV.Columns[i].Name.ToString() + ",";
+                    }
+                    else
+                    {
+                        columnNames += DGV.Columns[i].Name.ToString();
+                    }
+                }
+                output[0] += columnNames;
+                for (int i = 1; (i - 1) < DGV.RowCount; i++)
+                {
+                    for (int j = 0; j < columnCount; j++)
+                    {
+                        if (j < columnCount - 1)
+                        {
+                            output[i] += DGV.Rows[i - 1].Cells[j].Value.ToString() + ",";
+                        }
+                        else
+                        {
+                            output[i] += DGV.Rows[i - 1].Cells[j].Value.ToString();
+                        }
+                    }
+                }
+                System.IO.File.WriteAllLines(sfd.FileName, output, System.Text.Encoding.UTF8);
+                MessageBox.Show("Your file was generated and its ready for use.");
+            }
         }
 
+        private void akcjeEksportujDoCSV_Click(object sender, EventArgs e)   
+        {
+            SaveToCSV(dataGridView1);
+        }
+
+        private void akcjeImportujZCSV_Click(object sender, EventArgs e)
+        {/*
+            DataTable dataTable = new DataTable();
+            dataTable.Columns.Add("nazwaDataGridViewTextBoxColumn");
+            dataTable.Columns.Add("kategoriaDataGridViewTextBoxColumn");
+            dataTable.Columns.Add("czyWziacDataGridViewCheckBoxColumn");
+            string filePath = "C:\\Users\\Krzysztof\\Desktop\\Osoby\\csv.csv";
+            StreamReader streamReader = new StreamReader(filePath);
+            string[] totalData = new string[File.ReadAllLines(filePath).Length];
+            totalData = streamReader.ReadLine().Split(',');
+            while (!streamReader.EndOfStream)
+            {
+                totalData = streamReader.ReadLine().Split(',');
+                dataTable.Rows.Add(totalData[0], totalData[1], totalData[2]);
+            }
+            dataGridView1.DataSource = dataTable;*/
+        }
     }
 }
