@@ -67,7 +67,7 @@ namespace AppMojaWalizka
                     }
                     catch (IOException ex)
                     {
-                        MessageBox.Show("It wasn't possible to write the data to the disk." + ex.Message);
+                        MessageBox.Show("Nie było możliwe, żeby zapisać ten plik." + ex.Message);
                     }
                 }
                 int columnCount = DGV.ColumnCount;
@@ -100,7 +100,6 @@ namespace AppMojaWalizka
                     }
                 }
                 System.IO.File.WriteAllLines(sfd.FileName, output, System.Text.Encoding.UTF8);
-                MessageBox.Show("Your file was generated and its ready for use.");
             }
         }
 
@@ -110,21 +109,48 @@ namespace AppMojaWalizka
         }
 
         private void akcjeImportujZCSV_Click(object sender, EventArgs e)
-        {/*
-            DataTable dataTable = new DataTable();
-            dataTable.Columns.Add("nazwaDataGridViewTextBoxColumn");
-            dataTable.Columns.Add("kategoriaDataGridViewTextBoxColumn");
-            dataTable.Columns.Add("czyWziacDataGridViewCheckBoxColumn");
-            string filePath = "C:\\Users\\Krzysztof\\Desktop\\Osoby\\csv.csv";
-            StreamReader streamReader = new StreamReader(filePath);
-            string[] totalData = new string[File.ReadAllLines(filePath).Length];
-            totalData = streamReader.ReadLine().Split(',');
-            while (!streamReader.EndOfStream)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            string path = "";
+            if(ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                totalData = streamReader.ReadLine().Split(',');
-                dataTable.Rows.Add(totalData[0], totalData[1], totalData[2]);
+                path = ofd.FileName.ToString();
             }
-            dataGridView1.DataSource = dataTable;*/
+            //MessageBox.Show(path);
+
+            DataTable dt = new DataTable();
+            string[] lines = System.IO.File.ReadAllLines(path);
+            if (lines.Length > 0)
+            {
+                /*
+                // ten fragment kodu może być użyteczny w przypadku obsługi 
+                // paremetru "ma nagłówek/nie ma nagłówka"
+
+                string firstLine = lines[0];
+                string[] headerLabels = firstLine.Split(',');
+                */
+                
+                for (int i = 1; i < lines.Length; i++)
+                {
+                    string[] dataWords = lines[i].Split(',');
+                    
+                    {
+                        ElementyClass elem = new ElementyClass();
+                        elem.Nazwa = dataWords[0];
+                        elem.Kategoria = dataWords[1];
+                        elem.CzyWziac = dataWords[2].ToLower()=="true" ? true : false;
+                        elementyClassBindingSource.Add(elem);
+                    }
+                }
+
+            }
         }
+        /*
+        private void DodajWiersze()
+        {
+
+        }
+        */
+
     }
 }
