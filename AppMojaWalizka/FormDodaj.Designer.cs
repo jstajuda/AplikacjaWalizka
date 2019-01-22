@@ -82,7 +82,6 @@
             this.cmbKategoria.Name = "cmbKategoria";
             this.cmbKategoria.Size = new System.Drawing.Size(247, 21);
             this.cmbKategoria.TabIndex = 3;
-            
             // 
             // kategoriaBindingSource
             // 
@@ -103,6 +102,7 @@
             this.MinimizeBox = false;
             this.Name = "FormDodaj";
             this.Text = "FormDodaj";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormDodaj_FormClosing);
             this.Load += new System.EventHandler(this.FormDodaj_Load);
             ((System.ComponentModel.ISupportInitialize)(this.kategoriaBindingSource)).EndInit();
             this.ResumeLayout(false);

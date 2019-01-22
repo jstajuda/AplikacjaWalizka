@@ -28,17 +28,29 @@ namespace AppMojaWalizka
             elem.Nazwa = txtNazwa.Text;
             elem.CzyWziac = true;
             elem.Kategoria = cmbKategoria.Text;
+
         }
 
         private void FormDodaj_Load(object sender, EventArgs e)
         {
-            if(elem != null)
-            {
-                txtNazwa.Text = elem.Nazwa;
-                cmbKategoria.Text = elem.Kategoria;
-            }
+            txtNazwa.Text = elem.Nazwa;
+            cmbKategoria.Text = elem.Kategoria;
         }
 
+        private void FormDodaj_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (elem.Nazwa == "" || elem.Kategoria == "")
+            {
+                elem.Nazwa = "";
+                elem.Kategoria = "";
+                var wynik = MessageBox.Show("Nie wprowadzono danych poprawnie. Wprowadź dane do obu pól.", "Brak danych"
+                                                ,MessageBoxButtons.OK
+                                                ,MessageBoxIcon.Exclamation
+                                                );
 
+                e.Cancel = true;
+
+            }
+        }
     }
 }
