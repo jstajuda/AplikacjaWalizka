@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AppMojaWalizka
 {
-    public class ElementyClass
+    public class Element
     {
         public string Nazwa { get; set; }
         public bool CzyWziac { get; set; }

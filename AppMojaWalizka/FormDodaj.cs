@@ -15,12 +15,12 @@ namespace AppMojaWalizka
     public partial class FormDodaj : Form
     {
         
-        public ElementyClass elem { get; set; }
+        public Element elem { get; set; }
 
         public FormDodaj()
         {
             InitializeComponent();
-            cmbKategoria.DataSource = Enum.GetValues(typeof(EnumKategoria.Kategoria));
+            cmbKategoria.DataSource = Enum.GetValues(typeof(Kategoria));
         }
 
         private void button1_Click(object sender, EventArgs e)

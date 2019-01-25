@@ -21,23 +21,23 @@ namespace AppMojaWalizka
 
         private void listaDodaj_Click(object sender, EventArgs e)
         {
-            using (FormDodaj d = new FormDodaj() { elem = new ElementyClass()})
+            using (FormDodaj d = new FormDodaj() { elem = new Element()})
             {
                 if (d.ShowDialog() == DialogResult.OK)
-                    elementyClassBindingSource.Add(d.elem);
+                    elementBindingSource.Add(d.elem);
             }
         }
 
         private void btnEdytuj_Click(object sender, EventArgs e)
         {
-            ElementyClass element = elementyClassBindingSource.Current as ElementyClass;
+            Element element = elementBindingSource.Current as Element;
             if(element != null)
             {
                 using(FormDodaj f = new FormDodaj() { elem = element })
                 {
                     if(f.ShowDialog() == DialogResult.OK)
                     {
-                        elementyClassBindingSource.EndEdit();
+                        elementBindingSource.EndEdit();
                         btnEdytuj.Show();
                     }
                 }
@@ -135,22 +135,22 @@ namespace AppMojaWalizka
                     string[] dataWords = lines[i].Split(',');
                     
                     {
-                        ElementyClass elem = new ElementyClass();
+                        Element elem = new Element();
                         elem.Nazwa = dataWords[0];
-                        elem.Kategoria = dataWords[1];
-                        elem.CzyWziac = dataWords[2].ToLower()=="true" ? true : false;
-                        elementyClassBindingSource.Add(elem);
+                        elem.CzyWziac = dataWords[1].ToLower()=="true" ? true : false;
+                        elem.Kategoria = dataWords[2];
+                        elementBindingSource.Add(elem);
                     }
                 }
 
             }
         }
         /*
-        private void DodajWiersze()
-        {
+private void DodajWiersze()
+{
 
-        }
-        */
+}
+*/
 
     }
 }
