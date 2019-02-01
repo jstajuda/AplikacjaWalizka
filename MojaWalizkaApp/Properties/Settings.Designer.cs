@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AppMojaWalizka.Properties
+namespace MojaWalizkaApp.Properties
 {
 
 
