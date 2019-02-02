@@ -15,6 +15,7 @@
         FontFamily="{DynamicResource MaterialDesignFont}"
         Title="Moja Walizka" WindowState="Maximized" d:DesignWidth="1167.975" d:DesignHeight="787.8">
 
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="340"></ColumnDefinition>
@@ -85,8 +86,8 @@
                                 </ComboBox>
                             </StackPanel>
 
-                            <Button Margin="0 20 0 20" MaxWidth="250" HorizontalAlignment="Center" 
-                            Style="{StaticResource MaterialDesignFlatButton}">Generuj listę</Button>
+                            <Button Name="SideGenerateListButton" Margin="0 20 0 20" MaxWidth="250" HorizontalAlignment="Center" 
+                            Style="{StaticResource MaterialDesignFlatButton}" Click="SideGenerateListButton_Click">Generuj nową listę</Button>
 
                         </StackPanel>
                     </Expander>
@@ -98,19 +99,38 @@
                     </Expander.Header>
                     <StackPanel Margin="20 0 0 0">
                         <Label FontWeight="SemiBold" Foreground="#777777">Ostatnie wyjazdy</Label>
-                        <ListView FontWeight="Normal">
-                            <ListViewItem>Madagaskar</ListViewItem>
-                            <ListViewItem>Nowa Zelandia</ListViewItem>
-                            <ListViewItem>Bździochy Wielkie</ListViewItem>
+                        <ListView FontWeight="Normal" Name="LatestTripsListView" HorizontalContentAlignment="Stretch" SelectionChanged="LatestTripsListView_SelectionChanged">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Grid.Column="0" Text="{Binding Name}"></TextBlock>
+                                        <StackPanel Name="SideListActionIcons" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                                            <Button ToolTip="Edytuj" Style="{StaticResource MaterialDesignFlatButton}" Width="Auto" Height="Auto" Padding="0">
+                                                <materialDesign:PackIcon Kind="Edit" Width="16" Height="16" Margin="10 0 10 0" />
+                                            </Button>
+                                            <Button ToolTip="Usuń" Style="{StaticResource MaterialDesignFlatButton}" Width="Auto" Height="Auto" Padding="0">
+                                                <materialDesign:PackIcon Kind="Delete" Width="16" Height="16" Margin="10 0 10 0" />
+                                            </Button>
+                                        </StackPanel>
+                                    </Grid>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
                         </ListView>
-                        <Button Margin="0 20 0 20" MaxWidth="250" HorizontalAlignment="Center" 
-                        Style="{StaticResource MaterialDesignFlatButton}">Pokaż wszystkie</Button>
+                        <Button Name="SideListShowAllButton" Margin="0 20 0 20" MaxWidth="250" HorizontalAlignment="Center" 
+                        Style="{StaticResource MaterialDesignFlatButton}" Click="SideListShowAllButton_Click">Pokaż wszystkie</Button>
                     </StackPanel>
                 </Expander>
             </StackPanel>
         </ScrollViewer>
 
+        <ContentControl Content="{Binding CurrentView}" Grid.Column="1"></ContentControl>
+
         <Border Grid.Column="1" Padding="10">
+                    
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"></ColumnDefinition>

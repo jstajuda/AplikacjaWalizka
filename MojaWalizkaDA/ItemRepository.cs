@@ -1,25 +1,25 @@
 ﻿using MojaWalizkaBL;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace MojaWalizkaDA
 {
-    public class ItemRepository
+    public class ItemRepository :IRepository<Item>
     {
-        List<Item> items;
+        ObservableCollection<Item> items;
 
-        public List<Item> GetItems()
+        public ObservableCollection<Item> GetAll()
         {
-            items = GetTestItems();
-            return items;
+            return GetTestItems();
         }
 
-        private List<Item> GetTestItems()
+        private ObservableCollection<Item> GetTestItems()
         {
-            return new List<Item>()
+            return new ObservableCollection<Item>()
             {
                 new Item(1, "Ręcznik", "ten niebieski", "Higiena"),
                 new Item(2, "Półbuty", "brązowe skórzane", "Obuwie"),
