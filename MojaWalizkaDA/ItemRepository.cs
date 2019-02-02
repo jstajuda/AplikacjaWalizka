@@ -28,5 +28,6 @@ namespace MojaWalizkaDA
                 new Item(5, "Powerbank", "ten 30000mAh z latarką", "Elektronika")
             };
         }
+        //cmt
     }
 }
