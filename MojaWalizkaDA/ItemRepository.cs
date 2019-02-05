@@ -21,6 +21,7 @@ namespace MojaWalizkaDA
             Params = new HashSet<ParamRepository>();
         }
 
+        [Key]
         public int ItemId { get; set; }
 
         [StringLength(40)]

@@ -19,6 +19,7 @@ namespace MojaWalizkaDA
             Params = new HashSet<ParamRepository>();
         }
 
+        [Key]
         public int ParamGroupId { get; set; }
 
         [StringLength(40)]

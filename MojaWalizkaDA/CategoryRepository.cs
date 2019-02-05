@@ -19,6 +19,7 @@ namespace MojaWalizkaDA
             Items = new HashSet<ItemRepository>();
         }
 
+        [Key]
         public int CategoryId { get; set; }
 
         [StringLength(40)]
