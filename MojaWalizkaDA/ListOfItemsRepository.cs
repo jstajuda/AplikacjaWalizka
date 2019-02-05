@@ -12,10 +12,10 @@ using System.Data.Entity.Spatial;
 namespace MojaWalizkaDA
 {
     [Table("Lists")]
-    public partial class ListRepository : IRepository<ListOfItems>
+    public partial class ListOfItemsRepository : IRepository<ListOfItems>
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ListRepository()
+        public ListOfItemsRepository()
         {
             Items = new HashSet<ItemRepository>();
         }
@@ -30,7 +30,7 @@ namespace MojaWalizkaDA
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ItemRepository> Items { get; set; }
-
+        
         ObservableCollection<ListOfItems> itemLists;
 
         public ObservableCollection<ListOfItems> GetAll()

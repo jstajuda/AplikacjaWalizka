@@ -8,19 +8,20 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.Spatial;
 using System.Data.Entity;
 
+
 namespace MojaWalizkaDA
 {
     public partial class WalizkaContext : DbContext
     {
 
-        public WalizkaContext() : base(@"Data Source =.; Initial Catalog = WalizkaDb; Integrated Security = true")
+        public WalizkaContext() : base(@"Data Source =.; Initial Catalog = WalizkaDb; Integrated Security = true; ")
         {
-            Database.SetInitializer(new CreateDatabaseIfNotExists<WalizkaContext>());
+            Database.SetInitializer<WalizkaContext>(new CreateDatabaseIfNotExists<WalizkaContext>());
         }
 
         public virtual DbSet<CategoryRepository> Categories { get; set; }
         public virtual DbSet<ItemRepository> Items { get; set; }
-        public virtual DbSet<ListRepository> Lists { get; set; }
+        public virtual DbSet<ListOfItemsRepository> Lists { get; set; }
         public virtual DbSet<ParamGroupRepository> ParamGroups { get; set; }
         public virtual DbSet<ParamRepository> Params { get; set; }
 

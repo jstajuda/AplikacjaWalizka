@@ -11,7 +11,7 @@ using System.Data.Entity.Spatial;
 namespace MojaWalizkaDA
 {
     [Table("Params")]
-    public partial class ParamRepository:IRepository<Param>
+    public partial class ParamRepository :IRepository<Param>
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ParamRepository()
@@ -38,7 +38,7 @@ namespace MojaWalizkaDA
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ItemRepository> Items { get; set; }
-
+        
         public System.Collections.ObjectModel.ObservableCollection<Param> GetAll()
         {
             throw new NotImplementedException();

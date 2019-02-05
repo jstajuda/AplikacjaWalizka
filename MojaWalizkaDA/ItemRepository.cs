@@ -17,7 +17,7 @@ namespace MojaWalizkaDA
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ItemRepository()
         {
-            Lists = new HashSet<ListRepository>();
+            Lists = new HashSet<ListOfItemsRepository>();
             Params = new HashSet<ParamRepository>();
         }
 
@@ -34,11 +34,11 @@ namespace MojaWalizkaDA
         public virtual Category Category { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ListRepository> Lists { get; set; }
+        public virtual ICollection<ListOfItemsRepository> Lists { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ParamRepository> Params { get; set; }
-
+        
         ObservableCollection<Item> items;
 
         public ObservableCollection<Item> GetAll()

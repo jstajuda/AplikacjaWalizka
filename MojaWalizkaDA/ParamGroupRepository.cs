@@ -29,7 +29,7 @@ namespace MojaWalizkaDA
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ParamRepository> Params { get; set; }
-
+        
         public System.Collections.ObjectModel.ObservableCollection<ParamGroup> GetAll()
         {
             throw new NotImplementedException();

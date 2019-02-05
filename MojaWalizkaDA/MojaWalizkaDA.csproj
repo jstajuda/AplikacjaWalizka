@@ -50,7 +50,7 @@
   <ItemGroup>
     <Compile Include="CategoryRepository.cs" />
     <Compile Include="IRepository.cs" />
-    <Compile Include="ListRepository.cs" />
+    <Compile Include="ListOfItemsRepository.cs" />
     <Compile Include="ItemRepository.cs" />
     <Compile Include="ParamGroupRepository.cs" />
     <Compile Include="ParamRepository.cs" />

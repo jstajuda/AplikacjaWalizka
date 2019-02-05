@@ -25,31 +25,21 @@ namespace MojaWalizkaApp
     /// </summary>
     public partial class MainWindow : Window
     {
-
         MainViewModel viewModel;
 
         public MainWindow()
         {
             InitializeComponent();
-            
-            using (var db = new WalizkaContext())
-            {
-                var cat = new CategoryRepository { Name = "różneff", Description = "rzeczffgy" };
-                db.Categories.Add(cat);
-                db.SaveChanges();
-            }
 
             viewModel = new MainViewModel();
             DataContext = viewModel;
 
             var navigationView = new MainNavigationView(viewModel);
             MainNavigation.Content = navigationView;
-            
-
         }
         private void AddNewItemButton_Click(object sender, RoutedEventArgs e)
         {
-            viewModel.CurrentList.Items.Add(new Item(666, "Nowy przedmiot", "Opis przedmiotu", "Kategoria"));
+            viewModel.CurrentList.Items.Add(new Item("Nowy przedmiot", "Opis przedmiotu", "Kategoria"));
         }
     }
 }

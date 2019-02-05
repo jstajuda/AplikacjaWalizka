@@ -20,5 +20,12 @@ namespace MojaWalizkaBL
             Description = description;
             Category = category;
         }
+
+        public Item(string name, string description, string category)
+        {
+            Name = name;
+            Description = description;
+            Category = category;
+        }
     }
 }
