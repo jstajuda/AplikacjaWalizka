@@ -37,17 +37,16 @@ namespace MojaWalizkaApp
             var navigationView = new MainNavigationView(viewModel);
             MainNavigation.Content = navigationView;
 
-            /*using (var db = new WalizkaContext())
-            {
-                var cat = new CategoryRepository { Name = "różneff", Description = "rzeczffgy" };
-                db.Categories.Add(cat);
-                db.SaveChanges();
-            }*/
-
         }
         private void AddNewItemButton_Click(object sender, RoutedEventArgs e)
         {
             viewModel.CurrentList.Items.Add(new Item("Nowy przedmiot", "Opis przedmiotu", "Kategoria"));
+            /*using (var db = new WalizkaContext())
+                {
+                    var cat = new CategoryRepository { Name = "różneff", Description = "rzeczffgy" };
+                    db.Categories.Add(cat);
+                    db.SaveChanges();
+                }*/
         }
 
     }
