@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <!--<Expander IsExpanded="True" Background="#eaf2ff" Height="Auto">
+        <!--<Expander IsExpanded="True" Background="#eaf2ff" Height="Auto" Width="Auto">
             <Expander.Header>
                 <TextBlock FontSize="16" FontWeight="SemiBold">Przygotuj listę</TextBlock>
             </Expander.Header>
