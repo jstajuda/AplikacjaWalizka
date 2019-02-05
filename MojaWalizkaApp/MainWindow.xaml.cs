@@ -1,4 +1,6 @@
-﻿using MojaWalizkaBL;
+﻿using MojaWalizkaApp.View;
+using MojaWalizkaApp.ViewModel;
+using MojaWalizkaBL;
 using MojaWalizkaDA;
 using System;
 using System.Collections.Generic;
@@ -24,51 +26,22 @@ namespace MojaWalizkaApp
     public partial class MainWindow : Window
     {
 
-        public ObservableCollection<Item> Items;
-        public ObservableCollection<ItemList> ItemLists;
-        public List<PredefinedList> PredefinedLists;
-
-
-        public ItemRepository ItemRepository;
-        public ItemListRepository ItemListRepository;
-        public PredefinedListRepository PredefinedListRepository;
+        MainViewModel viewModel;
 
         public MainWindow()
         {
             InitializeComponent();
 
-            ItemRepository = new ItemRepository();
-            ItemListRepository = new ItemListRepository();
-            PredefinedListRepository = new PredefinedListRepository();
+            viewModel = new MainViewModel();
+            DataContext = viewModel;
 
-            Items = new ObservableCollection<Item>();
-            ItemLists = ItemListRepository.GetLatest();
-
-            ItemsDataGrid.ItemsSource = Items;
-            LatestTripsListView.ItemsSource = ItemLists;
+            var navigationView = new MainNavigationView(viewModel);
+            MainNavigation.Content = navigationView;
         }
 
-        private void SideListShowAllButton_Click(object sender, RoutedEventArgs e)
+        private void AddNewItemButton_Click(object sender, RoutedEventArgs e)
         {
-            ItemLists = new ObservableCollection<ItemList>();
-            ItemLists = ItemListRepository.GetAll();
-            LatestTripsListView.ItemsSource = ItemLists;
-        }
-
-        private void SideGenerateListButton_Click(object sender, RoutedEventArgs e)
-        {
-            List<PredefinedList> listToAppend = PredefinedListRepository.GetAll();
-            foreach (var item in listToAppend[0].Items)
-            {
-                Items.Add(item);
-            }
-            //Items.Add(new Item(1, "Ręcznik", "ten niebieski", "Higiena"));
-        }
-
-        private void LatestTripsListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            var list = e.AddedItems;
-            var list2 = new List();
+            viewModel.CurrentList.Items.Add(new Item(666, "Nowy przedmiot", "Opis przedmiotu", "Kategoria"));
         }
     }
 }

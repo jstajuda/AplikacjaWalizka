@@ -29,7 +29,7 @@ namespace MojaWalizkaDA
         {
             return new ObservableCollection<ItemList>()
             {
-                new ItemList(1, "Madagaskar", "ten niebieski", new List<Item>(){
+                new ItemList(1, "Madagaskar", "ten niebieski", new ObservableCollection<Item>(){
                     new Item(1, "Ręcznik", "ten niebieski", "Higiena"),
                     new Item(2, "Półbuty", "brązowe skórzane", "Obuwie"),
                     new Item(3, "Sweter", "Różowy w grochy", "Ubranie"),
@@ -37,7 +37,7 @@ namespace MojaWalizkaDA
                     new Item(5, "Powerbank", "ten 30000mAh z latarką", "Elektronika")
                 }),
 
-                new ItemList(2, "Nowa Zelandia", "brązowe skórzane", new List<Item>(){
+                new ItemList(2, "Nowa Zelandia", "brązowe skórzane", new ObservableCollection<Item>(){
                     new Item(1, "Ręcznik", "ten niebieski", "Higiena"),
                     new Item(2, "Półbuty", "brązowe skórzane", "Obuwie"),
                     new Item(3, "Sweter", "Różowy w grochy", "Ubranie"),
@@ -45,7 +45,7 @@ namespace MojaWalizkaDA
                     new Item(5, "Powerbank", "ten 30000mAh z latarką", "Elektronika")
                 }),
 
-                new ItemList(3, "Bździochy Wielkie", "Wczasy pod strzechą u gaździny", new List<Item>(){
+                new ItemList(3, "Bździochy Wielkie", "Wczasy pod strzechą u gaździny", new ObservableCollection<Item>(){
                     new Item(1, "Ręcznik", "ten niebieski", "Higiena"),
                     new Item(2, "Półbuty", "brązowe skórzane", "Obuwie"),
                     new Item(3, "Sweter", "Różowy w grochy", "Ubranie"),
@@ -53,7 +53,7 @@ namespace MojaWalizkaDA
                     new Item(5, "Powerbank", "ten 30000mAh z latarką", "Elektronika")
                 }),
 
-                new ItemList(4, "Sopot", "Opierdoling na molo", new List<Item>(){
+                new ItemList(4, "Sopot", "Opierdoling na molo", new ObservableCollection<Item>(){
                     new Item(1, "Ręcznik", "ten niebieski", "Higiena"),
                     new Item(2, "Półbuty", "brązowe skórzane", "Obuwie"),
                     new Item(3, "Sweter", "Różowy w grochy", "Ubranie"),
@@ -61,7 +61,7 @@ namespace MojaWalizkaDA
                     new Item(5, "Powerbank", "ten 30000mAh z latarką", "Elektronika")
                 }),
 
-                new ItemList(5, "Juesej", "Niagara i wielki kanion - jak wszyscy", new List<Item>(){
+                new ItemList(5, "Juesej", "Niagara i wielki kanion - jak wszyscy", new ObservableCollection<Item>(){
                     new Item(1, "Ręcznik", "ten niebieski", "Higiena"),
                     new Item(2, "Półbuty", "brązowe skórzane", "Obuwie"),
                     new Item(3, "Sweter", "Różowy w grochy", "Ubranie"),

@@ -22,112 +22,7 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <ScrollViewer Background="#eaf2ff" VerticalScrollBarVisibility="Auto">
-            <StackPanel Background="#eaf2ff" CanVerticallyScroll="True" VerticalAlignment="Center">
-                <Border BorderThickness="0 0 0 1" BorderBrush="#dddddd">
-                    <Expander IsExpanded="True" Background="#eaf2ff" Height="Auto">
-                        <Expander.Header>
-                            <TextBlock FontSize="16" FontWeight="SemiBold">Przygotuj listę</TextBlock>
-                        </Expander.Header>
-                        <StackPanel MaxWidth="300" HorizontalAlignment="Left" Margin="20 0 0 0">
-                            <StackPanel.Resources>
-                                <Style TargetType="Label">
-                                    <Setter Property="MinWidth" Value="120"></Setter>
-                                    <Setter Property="HorizontalContentAlignment" Value="Right"></Setter>
-                                    <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
-                                    <Setter Property="Margin" Value="0 0 20 0"></Setter>
-                                    <Setter Property="FontWeight" Value="Bold"></Setter>
-                                </Style>
-                                <Style TargetType="StackPanel" x:Key="ComboStackPanel">
-                                    <Setter Property="Orientation" Value="Horizontal"></Setter>
-                                    <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
-                                    <Setter Property="MinHeight" Value="40"></Setter>
-                                </Style>
-                                <Style TargetType="ComboBox" BasedOn="{StaticResource MaterialDesignComboBox}">
-                                    <Setter Property="MinWidth" Value="150"></Setter>
-                                    <Setter Property="VerticalAlignment" Value="Center"></Setter>
-                                    <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
-                                </Style>
-                            </StackPanel.Resources>
-
-                            <StackPanel Style="{StaticResource ComboStackPanel}">
-                                <Label>Płeć</Label>
-                                <ComboBox>
-                                    <ComboBoxItem IsSelected="True">Kobieta</ComboBoxItem>
-                                    <ComboBoxItem>Mężczyzna</ComboBoxItem>
-                                </ComboBox>
-                            </StackPanel>
-
-                            <StackPanel Style="{StaticResource ComboStackPanel}">
-                                <Label>Pora roku</Label>
-                                <ComboBox MinWidth="150">
-                                    <ComboBoxItem IsSelected="True">Lato</ComboBoxItem>
-                                    <ComboBoxItem>Zima</ComboBoxItem>
-                                    <ComboBoxItem>Wiosna / jesień</ComboBoxItem>
-                                </ComboBox>
-                            </StackPanel>
-
-                            <StackPanel Style="{StaticResource ComboStackPanel}">
-                                <Label>Nocleg</Label>
-                                <ComboBox MinWidth="150">
-                                    <ComboBoxItem IsSelected="True">Tak</ComboBoxItem>
-                                    <ComboBoxItem>Nie</ComboBoxItem>
-                                </ComboBox>
-                            </StackPanel>
-
-                            <StackPanel Style="{StaticResource ComboStackPanel}">
-                                <Label>Rodzaj wyjazdu</Label>
-                                <ComboBox MinWidth="150">
-                                    <ComboBoxItem IsSelected="True">Służbowy</ComboBoxItem>
-                                    <ComboBoxItem>Do rodziny</ComboBoxItem>
-                                    <ComboBoxItem>Wakacje - góry</ComboBoxItem>
-                                    <ComboBoxItem>Wakacje - miasto</ComboBoxItem>
-                                    <ComboBoxItem>Wakacje - nad wodą</ComboBoxItem>
-                                </ComboBox>
-                            </StackPanel>
-
-                            <Button Name="SideGenerateListButton" Margin="0 20 0 20" MaxWidth="250" HorizontalAlignment="Center" 
-                            Style="{StaticResource MaterialDesignFlatButton}" Click="SideGenerateListButton_Click">Generuj nową listę</Button>
-
-                        </StackPanel>
-                    </Expander>
-                </Border>
-
-                <Expander Background="#eaf2ff" IsExpanded="True" Height="Auto" Margin="0 10 0 0">
-                    <Expander.Header>
-                        <TextBlock FontSize="16" FontWeight="SemiBold">Historia podróży</TextBlock>
-                    </Expander.Header>
-                    <StackPanel Margin="20 0 0 0">
-                        <Label FontWeight="SemiBold" Foreground="#777777">Ostatnie wyjazdy</Label>
-                        <ListView FontWeight="Normal" Name="LatestTripsListView" HorizontalContentAlignment="Stretch" SelectionChanged="LatestTripsListView_SelectionChanged">
-                            <ListView.ItemTemplate>
-                                <DataTemplate>
-                                    <Grid>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="*"></ColumnDefinition>
-                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
-                                        </Grid.ColumnDefinitions>
-                                        <TextBlock Grid.Column="0" Text="{Binding Name}"></TextBlock>
-                                        <StackPanel Name="SideListActionIcons" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
-                                            <Button ToolTip="Edytuj" Style="{StaticResource MaterialDesignFlatButton}" Width="Auto" Height="Auto" Padding="0">
-                                                <materialDesign:PackIcon Kind="Edit" Width="16" Height="16" Margin="10 0 10 0" />
-                                            </Button>
-                                            <Button ToolTip="Usuń" Style="{StaticResource MaterialDesignFlatButton}" Width="Auto" Height="Auto" Padding="0">
-                                                <materialDesign:PackIcon Kind="Delete" Width="16" Height="16" Margin="10 0 10 0" />
-                                            </Button>
-                                        </StackPanel>
-                                    </Grid>
-                                </DataTemplate>
-                            </ListView.ItemTemplate>
-                        </ListView>
-                        <Button Name="SideListShowAllButton" Margin="0 20 0 20" MaxWidth="250" HorizontalAlignment="Center" 
-                        Style="{StaticResource MaterialDesignFlatButton}" Click="SideListShowAllButton_Click">Pokaż wszystkie</Button>
-                    </StackPanel>
-                </Expander>
-            </StackPanel>
-        </ScrollViewer>
-
-        <ContentControl Content="{Binding CurrentView}" Grid.Column="1"></ContentControl>
+        <ContentControl x:Name="MainNavigation" Grid.Column="0"/>
 
         <Border Grid.Column="1" Padding="10">
                     
@@ -148,10 +43,16 @@
                     </Style>
                 </Grid.Resources>
 
-                <TextBox Grid.Column="0" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center"
-                   FontSize="24" Foreground="#333333">Lista przedmiotów</TextBox>
+                <StackPanel Grid.Column="0" VerticalAlignment="Center">
+                    <TextBox FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center"
+                       FontSize="24" Foreground="#333333" Text="{Binding Path=CurrentList.Name}"></TextBox>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0 20 0 0">
+                        <Label Content="Ostatnie zmiany: " VerticalAlignment="Center" Padding="0" Foreground="#777777"></Label>
+                        <TextBlock Text="{Binding Path=CurrentList.CreatedAt}" VerticalAlignment="Center" Padding="0" Foreground="#777777"></TextBlock>
+                    </StackPanel>
+                </StackPanel>
 
-                <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right">
+                <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
                     <Button ToolTip="Dodaj">
                         Drukuj
                     </Button>
@@ -182,11 +83,11 @@
                             </Setter>
                         </Style>
                     </StackPanel.Resources>
-                    <DataGrid Name="ItemsDataGrid" AutoGenerateColumns="False" HorizontalContentAlignment="Stretch" CellStyle="{StaticResource DataGridRowVerticalCenter}">
+                    <DataGrid Name="ItemsDataGrid" AutoGenerateColumns="False" HorizontalContentAlignment="Stretch" CellStyle="{StaticResource DataGridRowVerticalCenter}" ItemsSource="{Binding Path=CurrentList.Items}">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Item" Binding="{Binding Name}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Category" Binding="{Binding Category}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="*"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Item" Binding="{Binding Path=Name}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Category" Binding="{Binding Path=Category}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Description" Binding="{Binding Path=Description}" Width="*"></DataGridTextColumn>
                             <DataGridTemplateColumn Header="Actions">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
@@ -203,7 +104,8 @@
                             </DataGridTemplateColumn>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <Button HorizontalAlignment="Right" Margin="0 20 20 0">Dodaj przedmiot</Button>
+                    <Button Name="AddNewItemButton" HorizontalAlignment="Right" Margin="0 20 20 0" Click="AddNewItemButton_Click">Dodaj przedmiot</Button>
+                    <ContentControl x:Name="ContentArea" />
                 </StackPanel>
 
             </Grid>
