@@ -42,12 +42,12 @@ namespace MojaWalizkaApp.View
 
         private void LatestTripsListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            main.CurrentList = LatestTripsListView.SelectedItem as ItemList; 
+            main.CurrentList = LatestTripsListView.SelectedItem as MojaWalizkaBL.ListOfItems; 
         }
 
         private void PredefinedListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            main.CurrentList = PredefinedListView.SelectedItem as ItemList;
+            main.CurrentList = PredefinedListView.SelectedItem as MojaWalizkaBL.ListOfItems;
         }
 
         private void CreateEmptyListButton_Click(object sender, RoutedEventArgs e)

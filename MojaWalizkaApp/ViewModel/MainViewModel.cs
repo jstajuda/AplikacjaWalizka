@@ -12,8 +12,8 @@ namespace MojaWalizkaApp.ViewModel
 {
     public class MainViewModel : ViewModelBase
     {
-        private ItemList currentList;
-        public ItemList CurrentList
+        private ListOfItems currentList;
+        public ListOfItems CurrentList
         {
             get => currentList;
             set {
@@ -22,10 +22,10 @@ namespace MojaWalizkaApp.ViewModel
             }
         }
 
-        public ObservableCollection<ItemList> ItemLists { get; set; }
-        public ObservableCollection<ItemList> ItemListsLimited { get; set; }
-        public ObservableCollection<ItemList> PredefinedLists{ get; set; }
-        public ItemList EmptyList { get; set; }
+        public ObservableCollection<ListOfItems> ItemLists { get; set; }
+        public ObservableCollection<ListOfItems> ItemListsLimited { get; set; }
+        public ObservableCollection<ListOfItems> PredefinedLists{ get; set; }
+        public ListOfItems EmptyList { get; set; }
 
 
         public MainViewModel()
@@ -37,12 +37,12 @@ namespace MojaWalizkaApp.ViewModel
             CurrentList = EmptyList;
         }
 
-        private ObservableCollection<ItemList> generateItemLists(int limit = -1)
+        private ObservableCollection<ListOfItems> generateItemLists(int limit = -1)
         {
 
-            ObservableCollection<ItemList> lists = new ObservableCollection<ItemList>()
+            ObservableCollection<ListOfItems> lists = new ObservableCollection<ListOfItems>()
             {
-                new ItemList(1, "Madagaskar", "ten niebieski", new ObservableCollection<Item>(){
+                new ListOfItems(1, "Madagaskar", "ten niebieski", new ObservableCollection<Item>(){
                     new Item(1, "Ręcznik", "ten niebieski Madagaskar", "Higiena"),
                     new Item(2, "Półbuty", "brązowe skórzane Madagaskar", "Obuwie"),
                     new Item(3, "Sweter", "Różowy w grochy Madagaskar", "Ubranie"),
@@ -50,7 +50,7 @@ namespace MojaWalizkaApp.ViewModel
                     new Item(5, "Powerbank", "ten 30000mAh z latarką", "Elektronika")
                 }),
 
-                new ItemList(2, "Nowa Zelandia", "brązowe skórzane", new ObservableCollection<Item>(){
+                new ListOfItems(2, "Nowa Zelandia", "brązowe skórzane", new ObservableCollection<Item>(){
                     new Item(1, "Ręcznik", "ten niebieski Zelandia", "Higiena"),
                     new Item(2, "Półbuty", "brązowe skórzane Zelandia", "Obuwie"),
                     new Item(3, "Sweter", "Różowy w grochy Zelandia", "Ubranie"),
@@ -58,7 +58,7 @@ namespace MojaWalizkaApp.ViewModel
                     new Item(5, "Powerbank", "ten 30000mAh z latarką", "Elektronika")
                 }),
 
-                new ItemList(3, "Bździochy Wielkie", "Wczasy pod strzechą u gaździny", new ObservableCollection<Item>(){
+                new ListOfItems(3, "Bździochy Wielkie", "Wczasy pod strzechą u gaździny", new ObservableCollection<Item>(){
                     new Item(1, "Ręcznik", "ten niebieski Wielkie", "Higiena"),
                     new Item(2, "Półbuty", "brązowe skórzane Wielkie", "Obuwie"),
                     new Item(3, "Sweter", "Różowy w grochy Wielkie", "Ubranie"),
@@ -66,7 +66,7 @@ namespace MojaWalizkaApp.ViewModel
                     new Item(5, "Powerbank", "ten 30000mAh z latarką", "Elektronika")
                 }),
 
-                new ItemList(4, "Sopot", "Opierdoling na molo Sopot", new ObservableCollection<Item>(){
+                new ListOfItems(4, "Sopot", "Opierdoling na molo Sopot", new ObservableCollection<Item>(){
                     new Item(1, "Ręcznik", "ten niebieski Sopot", "Higiena"),
                     new Item(2, "Półbuty", "brązowe skórzane Sopot", "Obuwie"),
                     new Item(3, "Sweter", "Różowy w grochy", "Ubranie"),
@@ -74,7 +74,7 @@ namespace MojaWalizkaApp.ViewModel
                     new Item(5, "Powerbank", "ten 30000mAh z latarką", "Elektronika")
                 }),
 
-                new ItemList(5, "Juesej", "Niagara i wielki kanion - jak wszyscy Juesej", new ObservableCollection<Item>(){
+                new ListOfItems(5, "Juesej", "Niagara i wielki kanion - jak wszyscy Juesej", new ObservableCollection<Item>(){
                     new Item(1, "Ręcznik", "ten niebieski Juesej", "Higiena"),
                     new Item(2, "Półbuty", "brązowe skórzane Juesej", "Obuwie"),
                     new Item(3, "Sweter", "Różowy w grochy Juesej", "Ubranie"),
@@ -93,11 +93,11 @@ namespace MojaWalizkaApp.ViewModel
             return lists;
         }
 
-        private ObservableCollection<ItemList> generatePredefinedLists()
+        private ObservableCollection<ListOfItems> generatePredefinedLists()
         {
-            return new ObservableCollection<ItemList>()
+            return new ObservableCollection<ListOfItems>()
             {
-                new ItemList(1, "Wycieczka górska", "Rzeczy niezbędne na szlaku", new ObservableCollection<Item>(){
+                new ListOfItems(1, "Wycieczka górska", "Rzeczy niezbędne na szlaku", new ObservableCollection<Item>(){
                     new Item(1, "Buty trekkingowe", "Te z Lidla", "Obuwie sportowe"),
                     new Item(2, "Peleryna", "Szara peleryna marki noname", "Odzież sportowa"),
                     new Item(3, "Sweter", "Różowy w grochy", "Odzież"),
@@ -105,7 +105,7 @@ namespace MojaWalizkaApp.ViewModel
                     new Item(5, "Powerbank", "ten 30000mAh z latarką", "Elektronika")
                 }),
 
-                new ItemList(2, "Wyjazd służbowy", "Rzeczy na wyjazd służbowy", new ObservableCollection<Item>(){
+                new ListOfItems(2, "Wyjazd służbowy", "Rzeczy na wyjazd służbowy", new ObservableCollection<Item>(){
                     new Item(1, "Ręcznik", "Niebieski w paski", "Higiena"),
                     new Item(2, "Półbuty", "Brązowe skórzane", "Obuwie"),
                     new Item(3, "Sweter", "Różowy w grochy", "Ubranie"),
@@ -113,7 +113,7 @@ namespace MojaWalizkaApp.ViewModel
                     new Item(5, "Laptop", "SuperMega Pro Edition", "Elektronika")
                 }),
 
-                new ItemList(3, "Wczasy nad morzem", "Rzeczy niezbędne na plażing", new ObservableCollection<Item>(){
+                new ListOfItems(3, "Wczasy nad morzem", "Rzeczy niezbędne na plażing", new ObservableCollection<Item>(){
                     new Item(1, "Ręcznik", "Niebieski w paski", "Higiena"),
                     new Item(7, "Ręcznik", "Żółty w paski", "Higiena"),
                     new Item(2, "Klapki", "Srebrne błyszczące Kubota", "Obuwie"),
@@ -125,9 +125,9 @@ namespace MojaWalizkaApp.ViewModel
             };
         }
 
-        private ItemList generateEmptyList()
+        private ListOfItems generateEmptyList()
         {
-            return new ItemList(666, "Nowa lista", "", new ObservableCollection<Item>());
+            return new ListOfItems(666, "Nowa lista", "", new ObservableCollection<Item>());
         }
 
     }

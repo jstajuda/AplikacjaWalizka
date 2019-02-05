@@ -10,18 +10,16 @@ using System.Data.Entity.Spatial;
 
 namespace MojaWalizkaDA
 {
-    [Table("Params")]
-    public partial class ParamRepository:IRepository<Param>
+    [Table("ParamGroups")]
+    public partial class ParamGroupRepository : IRepository<ParamGroup>
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ParamRepository()
+        public ParamGroupRepository()
         {
-            Items = new HashSet<ItemRepository>();
+            Params = new HashSet<ParamRepository>();
         }
 
-        [Key]
-        [Column(Order = 0)]
-        public int ParamId { get; set; }
+        public int ParamGroupId { get; set; }
 
         [StringLength(40)]
         public string Name { get; set; }
@@ -29,17 +27,10 @@ namespace MojaWalizkaDA
         [StringLength(200)]
         public string Description { get; set; }
 
-        [Key]
-        [Column(Order = 1)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int GroupID { get; set; }
-
-        public virtual ParamGroupRepository ParamGroup { get; set; }
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ItemRepository> Items { get; set; }
+        public virtual ICollection<ParamRepository> Params { get; set; }
 
-        public System.Collections.ObjectModel.ObservableCollection<Param> GetAll()
+        public System.Collections.ObjectModel.ObservableCollection<ParamGroup> GetAll()
         {
             throw new NotImplementedException();
         }

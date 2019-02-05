@@ -5,19 +5,40 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity.Spatial;
 
 namespace MojaWalizkaDA
 {
-    public class ItemListRepository : IRepository<ItemList>
+    [Table("Lists")]
+    public partial class ListRepository : IRepository<ListOfItems>
     {
-        ObservableCollection<ItemList> itemLists;
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public ListRepository()
+        {
+            Items = new HashSet<ItemRepository>();
+        }
 
-        public ObservableCollection<ItemList> GetAll()
+        public int ListId { get; set; }
+
+        [StringLength(40)]
+        public string Name { get; set; }
+
+        [StringLength(200)]
+        public string Description { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ItemRepository> Items { get; set; }
+
+        ObservableCollection<ListOfItems> itemLists;
+
+        public ObservableCollection<ListOfItems> GetAll()
         {
             return GetTestItemLists();
         }
 
-        public ObservableCollection<ItemList> GetLatest()
+        public ObservableCollection<ListOfItems> GetLatest()
         {
             itemLists = GetTestItemLists();
             itemLists.Remove(itemLists[0]);
@@ -25,11 +46,11 @@ namespace MojaWalizkaDA
             return itemLists;
         }
 
-        private ObservableCollection<ItemList> GetTestItemLists()
+        private ObservableCollection<ListOfItems> GetTestItemLists()
         {
-            return new ObservableCollection<ItemList>()
+            return new ObservableCollection<ListOfItems>()
             {
-                new ItemList(1, "Madagaskar", "ten niebieski", new ObservableCollection<Item>(){
+                new ListOfItems(1, "Madagaskar", "ten niebieski", new ObservableCollection<Item>(){
                     new Item(1, "Ręcznik", "ten niebieski", "Higiena"),
                     new Item(2, "Półbuty", "brązowe skórzane", "Obuwie"),
                     new Item(3, "Sweter", "Różowy w grochy", "Ubranie"),
@@ -37,7 +58,7 @@ namespace MojaWalizkaDA
                     new Item(5, "Powerbank", "ten 30000mAh z latarką", "Elektronika")
                 }),
 
-                new ItemList(2, "Nowa Zelandia", "brązowe skórzane", new ObservableCollection<Item>(){
+                new ListOfItems(2, "Nowa Zelandia", "brązowe skórzane", new ObservableCollection<Item>(){
                     new Item(1, "Ręcznik", "ten niebieski", "Higiena"),
                     new Item(2, "Półbuty", "brązowe skórzane", "Obuwie"),
                     new Item(3, "Sweter", "Różowy w grochy", "Ubranie"),
@@ -45,7 +66,7 @@ namespace MojaWalizkaDA
                     new Item(5, "Powerbank", "ten 30000mAh z latarką", "Elektronika")
                 }),
 
-                new ItemList(3, "Bździochy Wielkie", "Wczasy pod strzechą u gaździny", new ObservableCollection<Item>(){
+                new ListOfItems(3, "Bździochy Wielkie", "Wczasy pod strzechą u gaździny", new ObservableCollection<Item>(){
                     new Item(1, "Ręcznik", "ten niebieski", "Higiena"),
                     new Item(2, "Półbuty", "brązowe skórzane", "Obuwie"),
                     new Item(3, "Sweter", "Różowy w grochy", "Ubranie"),
@@ -53,7 +74,7 @@ namespace MojaWalizkaDA
                     new Item(5, "Powerbank", "ten 30000mAh z latarką", "Elektronika")
                 }),
 
-                new ItemList(4, "Sopot", "Opierdoling na molo", new ObservableCollection<Item>(){
+                new ListOfItems(4, "Sopot", "Opierdoling na molo", new ObservableCollection<Item>(){
                     new Item(1, "Ręcznik", "ten niebieski", "Higiena"),
                     new Item(2, "Półbuty", "brązowe skórzane", "Obuwie"),
                     new Item(3, "Sweter", "Różowy w grochy", "Ubranie"),
@@ -61,7 +82,7 @@ namespace MojaWalizkaDA
                     new Item(5, "Powerbank", "ten 30000mAh z latarką", "Elektronika")
                 }),
 
-                new ItemList(5, "Juesej", "Niagara i wielki kanion - jak wszyscy", new ObservableCollection<Item>(){
+                new ListOfItems(5, "Juesej", "Niagara i wielki kanion - jak wszyscy", new ObservableCollection<Item>(){
                     new Item(1, "Ręcznik", "ten niebieski", "Higiena"),
                     new Item(2, "Półbuty", "brązowe skórzane", "Obuwie"),
                     new Item(3, "Sweter", "Różowy w grochy", "Ubranie"),

@@ -11,7 +11,7 @@ namespace MojaWalizkaApp.ViewModel
     public class MainNavigationViewModel : ViewModelBase
     {
         public MainViewModel MainViewModel;
-        public ObservableCollection<ItemList> ItemLists { get; set; }
+        public ObservableCollection<ListOfItems> ItemLists { get; set; }
 
         public MainNavigationViewModel(MainViewModel mainViewModel)
         {

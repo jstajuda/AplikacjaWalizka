@@ -19,7 +19,7 @@ namespace MojaWalizkaDA
             Items = new HashSet<ItemRepository>();
         }
 
-        public int ID { get; set; }
+        public int CategoryId { get; set; }
 
         [StringLength(40)]
         public string Name { get; set; }
@@ -29,23 +29,6 @@ namespace MojaWalizkaDA
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ItemRepository> Items { get; set; }
-
-
-        List<Category> items;
-
-        public List<Category> GetCategories()
-        {
-            items = GetTestCategories();
-            return items;
-        }
-
-        private List<Category> GetTestCategories()
-        {
-            return new List<Category>()
-            {
-                //new Category("Kategoria domyslna", "rózne rzeczy")
-            };
-        }
 
         public System.Collections.ObjectModel.ObservableCollection<Category> GetAll()
         {

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MojaWalizkaBL
 {
-    public class ItemList
+    public class ListOfItems
     {
         public int ItemListId { get; set; }
         public string Name { get; set; }
@@ -16,7 +16,7 @@ namespace MojaWalizkaBL
         public DateTime UpdatedAt { get; set; }
         public ObservableCollection<Item> Items { get; set; }
 
-        public ItemList(int itemListId, string name, string description, ObservableCollection<Item> items = null)
+        public ListOfItems(int itemListId, string name, string description, ObservableCollection<Item> items = null)
         {
             ItemListId = itemListId;
             Name = name;

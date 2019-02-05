@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MojaWalizkaBL
 {
-    public class Category
+    public class Param
     {
     }
 }

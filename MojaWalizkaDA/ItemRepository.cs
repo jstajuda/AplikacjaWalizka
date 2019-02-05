@@ -5,11 +5,40 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity.Spatial;
 
 namespace MojaWalizkaDA
 {
-    public class ItemRepository :IRepository<Item>
+    [Table("Items")]
+    public partial class ItemRepository :IRepository<Item>
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public ItemRepository()
+        {
+            Lists = new HashSet<ListRepository>();
+            Params = new HashSet<ParamRepository>();
+        }
+
+        public int ItemId { get; set; }
+
+        [StringLength(40)]
+        public string Name { get; set; }
+
+        [StringLength(200)]
+        public string Description { get; set; }
+
+        public int? CategoryID { get; set; }
+
+        public virtual Category Category { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ListRepository> Lists { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ParamRepository> Params { get; set; }
+
         ObservableCollection<Item> items;
 
         public ObservableCollection<Item> GetAll()
