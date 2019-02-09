@@ -83,10 +83,10 @@
                             </Setter>
                         </Style>
                     </StackPanel.Resources>
-                    <DataGrid Name="ItemsDataGrid" AutoGenerateColumns="False" HorizontalContentAlignment="Stretch" CellStyle="{StaticResource DataGridRowVerticalCenter}" ItemsSource="{Binding Path=CurrentList.Items}">
+                    <DataGrid Name="ItemsDataGrid" AutoGenerateColumns="False" HorizontalContentAlignment="Stretch" CellStyle="{StaticResource DataGridRowVerticalCenter}" ItemsSource="{Binding Path=CurrentList.Items}" IsReadOnly="True">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Item" Binding="{Binding Path=Name}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Category" Binding="{Binding Path=Category}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Category" Binding="{Binding Path=Category.Name}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Description" Binding="{Binding Path=Description}" Width="*"></DataGridTextColumn>
                             <DataGridTemplateColumn Header="Actions">
                                 <DataGridTemplateColumn.CellTemplate>

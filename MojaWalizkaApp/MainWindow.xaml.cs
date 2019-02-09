@@ -41,7 +41,6 @@ namespace MojaWalizkaApp
 
         private void AddNewItemButton_Click(object sender, RoutedEventArgs e)
         {
-            viewModel.CurrentList.Items.Add(new Item(666, "Nowy przedmiot", "Opis przedmiotu", "Kategoria"));
         }
     }
 }

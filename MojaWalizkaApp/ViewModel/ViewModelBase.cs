@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 
 namespace MojaWalizkaApp.ViewModel
 {
-
     public class ViewModelBase : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
@@ -17,7 +16,4 @@ namespace MojaWalizkaApp.ViewModel
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }    
     }
-
-    
-
 }

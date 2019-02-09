@@ -22,7 +22,6 @@ namespace MojaWalizkaApp.View
     /// </summary>
     public partial class MainNavigationView : UserControl
     {
-        private MainNavigationViewModel nav;
         private MainViewModel main;
         
         public MainNavigationView(MainViewModel mainViewModel)

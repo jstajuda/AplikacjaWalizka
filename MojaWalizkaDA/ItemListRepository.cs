@@ -8,68 +8,64 @@ using System.Threading.Tasks;
 
 namespace MojaWalizkaDA
 {
-    public class ItemListRepository : IRepository<ItemList>
+    public class ItemListRepository
     {
-        ObservableCollection<ItemList> itemLists;
+        WalizkaAppContext ctx = new WalizkaAppContext();
 
-        public ObservableCollection<ItemList> GetAll()
+        public IQueryable<ItemList> GetAll()
         {
-            return GetTestItemLists();
+            return ctx.ItemLists.Include("Items");
         }
 
-        public ObservableCollection<ItemList> GetLatest()
+        public IQueryable<ItemList> GetLimited(int limit)
         {
-            itemLists = GetTestItemLists();
-            itemLists.Remove(itemLists[0]);
-            itemLists.Remove(itemLists[0]);
-            return itemLists;
+            return ctx.ItemLists.OrderByDescending(il => il.CreatedAt).Take(limit);
         }
 
-        private ObservableCollection<ItemList> GetTestItemLists()
+        public static IQueryable<ItemList> GetAllStatic()
         {
-            return new ObservableCollection<ItemList>()
+            using (WalizkaAppContext ctx = new WalizkaAppContext())
             {
-                new ItemList(1, "Madagaskar", "ten niebieski", new ObservableCollection<Item>(){
-                    new Item(1, "Ręcznik", "ten niebieski", "Higiena"),
-                    new Item(2, "Półbuty", "brązowe skórzane", "Obuwie"),
-                    new Item(3, "Sweter", "Różowy w grochy", "Ubranie"),
-                    new Item(4, "Żel pod prysznic", "super energy for menly men", "Higiena"),
-                    new Item(5, "Powerbank", "ten 30000mAh z latarką", "Elektronika")
-                }),
-
-                new ItemList(2, "Nowa Zelandia", "brązowe skórzane", new ObservableCollection<Item>(){
-                    new Item(1, "Ręcznik", "ten niebieski", "Higiena"),
-                    new Item(2, "Półbuty", "brązowe skórzane", "Obuwie"),
-                    new Item(3, "Sweter", "Różowy w grochy", "Ubranie"),
-                    new Item(4, "Żel pod prysznic", "super energy for menly men", "Higiena"),
-                    new Item(5, "Powerbank", "ten 30000mAh z latarką", "Elektronika")
-                }),
-
-                new ItemList(3, "Bździochy Wielkie", "Wczasy pod strzechą u gaździny", new ObservableCollection<Item>(){
-                    new Item(1, "Ręcznik", "ten niebieski", "Higiena"),
-                    new Item(2, "Półbuty", "brązowe skórzane", "Obuwie"),
-                    new Item(3, "Sweter", "Różowy w grochy", "Ubranie"),
-                    new Item(4, "Żel pod prysznic", "super energy for menly men", "Higiena"),
-                    new Item(5, "Powerbank", "ten 30000mAh z latarką", "Elektronika")
-                }),
-
-                new ItemList(4, "Sopot", "Opierdoling na molo", new ObservableCollection<Item>(){
-                    new Item(1, "Ręcznik", "ten niebieski", "Higiena"),
-                    new Item(2, "Półbuty", "brązowe skórzane", "Obuwie"),
-                    new Item(3, "Sweter", "Różowy w grochy", "Ubranie"),
-                    new Item(4, "Żel pod prysznic", "super energy for menly men", "Higiena"),
-                    new Item(5, "Powerbank", "ten 30000mAh z latarką", "Elektronika")
-                }),
-
-                new ItemList(5, "Juesej", "Niagara i wielki kanion - jak wszyscy", new ObservableCollection<Item>(){
-                    new Item(1, "Ręcznik", "ten niebieski", "Higiena"),
-                    new Item(2, "Półbuty", "brązowe skórzane", "Obuwie"),
-                    new Item(3, "Sweter", "Różowy w grochy", "Ubranie"),
-                    new Item(4, "Żel pod prysznic", "super energy for menly men", "Higiena"),
-                    new Item(5, "Powerbank", "ten 30000mAh z latarką", "Elektronika")
-                })
+                return ctx.ItemLists;
             };
+        }
+
+        public ItemList GetById(int id)
+        {
+            return ctx.ItemLists.Find(id);
+        }
+
+
+        public void Add(ItemList itemList)
+        {
+            ctx.ItemLists.Add(itemList);
+            ctx.SaveChanges();
+        }
+
+        public void Delete(ItemList itemList)
+        {
+            ctx.ItemLists.Remove(itemList);
+            ctx.SaveChanges();
+        }
+
+        public void Update(Category category)
+        {
+            ctx.SaveChanges();
+        }
+
+        public void Save()
+        {
+            ctx.SaveChanges();
         }
     }
 
 }
+
+        //public ObservableCollection<ItemList> GetLatest()
+        //{
+        //    itemLists = GetTestItemLists();
+        //    itemLists.Remove(itemLists[0]);
+        //    itemLists.Remove(itemLists[0]);
+        //    return itemLists;
+        //}
+        
