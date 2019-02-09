@@ -1,48 +1,47 @@
 ﻿using MojaWalizkaBL;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace MojaWalizkaDA
 {
-    public class ItemRepository
+    public class CategoryRepository
     {
         WalizkaAppContext ctx = new WalizkaAppContext();
 
-        public IQueryable<Item> GetAll()
+        public IQueryable<Category> GetAll()
         {
-            return ctx.Items;
+            return ctx.Categories;
         }
 
-        public static IQueryable<Item> GetAllStatic()
+        public static IQueryable<Category> GetAllStatic()
         {
             using (WalizkaAppContext ctx = new WalizkaAppContext())
             {
-                return ctx.Items;
+                return ctx.Categories;
             };
         }
 
-        public Item GetById(int id)
+        public Category GetById(int id)
         {
-            return ctx.Items.Find(id);
+            return ctx.Categories.Find(id);
         }
 
-        public void Add(Item item)
+        public void Add(Category category)
         {
-            ctx.Items.Add(item);
+            ctx.Categories.Add(category);
             ctx.SaveChanges();
         }
 
-        public void Delete(Item item)
+        public void Delete(Category category)
         {
-            ctx.Items.Remove(item);
+            ctx.Categories.Remove(category);
             ctx.SaveChanges();
         }
 
-        public void Update(Item item)
+        public void Update(Category category)
         {
             ctx.SaveChanges();
         }
@@ -51,5 +50,6 @@ namespace MojaWalizkaDA
         {
             ctx.SaveChanges();
         }
+
     }
 }
