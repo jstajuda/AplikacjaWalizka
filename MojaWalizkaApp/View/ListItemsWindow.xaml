@@ -1,0 +1,74 @@
+﻿<Window x:Class="MojaWalizkaApp.View.ListItemsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MojaWalizkaApp.View"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Name="ListItemsWindowControl"
+        Title="Items" Width="800" Height="600" Loaded="ListItemsWindowControl_Loaded">
+
+    <Grid HorizontalAlignment="Center">
+        <Grid.Resources>
+            <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignFlatButton}">
+                <Setter Property="Margin" Value="0 0 10 0"></Setter>
+            </Style>
+            <Style x:Key="DataGridRowVerticalCenter" TargetType="{x:Type DataGridCell}">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type DataGridCell}">
+                            <Grid Background="{TemplateBinding Background}">
+                                <Border Padding="10 0 10 0">
+                                    <ContentPresenter VerticalAlignment="Center"></ContentPresenter>
+                                </Border>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <DataGrid Name="ItemsDataGrid" AutoGenerateColumns="False" HorizontalContentAlignment="Stretch" CellStyle="{StaticResource DataGridRowVerticalCenter}" ItemsSource="{Binding Path=CurrentList.Items}" IsReadOnly="True" 
+                      ScrollViewer.CanContentScroll="True" 
+                      ScrollViewer.VerticalScrollBarVisibility="Auto"
+                      ScrollViewer.HorizontalScrollBarVisibility="Auto">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Item" Binding="{Binding Path=Name}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Category" Binding="{Binding Path=Category.Name}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Description" Binding="{Binding Path=Description}" Width="*"></DataGridTextColumn>
+                <DataGridTemplateColumn Header="Actions">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button ToolTip="Edytuj" Name="EditItemButton" Click="EditItemButton_Click">
+                                    <materialDesign:PackIcon Kind="Edit" Width="16" Height="16"/>
+                                </Button>
+                                <Button ToolTip="Usuń" Name="DeleteItemButton" Click="DeleteItemButton_Click">
+                                    <materialDesign:PackIcon Kind="Delete" Width="16" Height="16"/>
+                                </Button>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="1">
+            <Button Name="CreateItemButton" HorizontalAlignment="Right" Margin="0 20 20 0" Click="CreateItemButton_Click" VerticalAlignment="Center">Nowy przedmiot</Button>
+            <Button Name="AddToListButton" HorizontalAlignment="Right" Margin="0 20 20 0" Grid.Row="1" VerticalAlignment="Center" Click="AddToListButton_Click">Dodaj do listy</Button>
+        </StackPanel>
+ 
+    </Grid>
+</Window>

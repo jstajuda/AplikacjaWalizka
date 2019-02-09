@@ -80,6 +80,12 @@
     <Compile Include="ViewModel\MainNavigationViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
+    <Compile Include="View\AddItemWindow.xaml.cs">
+      <DependentUpon>AddItemWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ListItemsWindow.xaml.cs">
+      <DependentUpon>ListItemsWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\_generatePredefinedListView.xaml.cs">
       <DependentUpon>_generatePredefinedListView.xaml</DependentUpon>
     </Compile>
@@ -98,6 +104,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\AddItemWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ListItemsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\_generatePredefinedListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

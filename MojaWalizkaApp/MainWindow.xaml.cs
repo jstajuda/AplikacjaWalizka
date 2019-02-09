@@ -32,7 +32,9 @@ namespace MojaWalizkaApp
         {
             InitializeComponent();
 
-            viewModel = new MainViewModel();
+            WalizkaAppContext context = new WalizkaAppContext();
+
+            viewModel = new MainViewModel(context);
             DataContext = viewModel;
 
             var navigationView = new MainNavigationView(viewModel);
@@ -41,6 +43,23 @@ namespace MojaWalizkaApp
 
         private void AddNewItemButton_Click(object sender, RoutedEventArgs e)
         {
+            ListItemsWindow listItemsView = new ListItemsWindow(viewModel);
+            listItemsView.ShowDialog();
+        }
+
+        private void DeleteItemButton_Click(object sender, RoutedEventArgs e)
+        {
+            Item selectedItem = ItemsDataGrid.SelectedItem as Item;
+            viewModel.CurrentList.Items.Remove(selectedItem);
+        }
+
+        private void SaveListButton_Click(object sender, RoutedEventArgs e)
+        {
+            if(viewModel.CurrentList.Id == 0)
+            {
+                viewModel.ItemLists.Add(viewModel.CurrentList);
+            }
+            viewModel.ItemListsSaveChanges();
         }
     }
 }

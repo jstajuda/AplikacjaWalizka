@@ -3,6 +3,7 @@ using MojaWalizkaDA;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -55,6 +56,28 @@ namespace MojaWalizkaApp.ViewModel
             }
         }
 
+        private ObservableCollection<Category> categories;
+        public ObservableCollection<Category> Categories
+        {
+            get => categories;
+            set
+            {
+                categories = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private ObservableCollection<Item> items;
+        public ObservableCollection<Item> Items
+        {
+            get => items;
+            set
+            {
+                items = value;
+                OnPropertyChanged();
+            }
+        }
+
         private ItemList emptyList;
         public ItemList EmptyList
         {
@@ -67,18 +90,71 @@ namespace MojaWalizkaApp.ViewModel
         }
 
 
-        public MainViewModel()
+
+
+        public MainViewModel(WalizkaAppContext context)
         {
+            itemRepository = new ItemRepository(context);
+            categoryRepository = new CategoryRepository(context);
+            itemListRepository = new ItemListRepository(context);
+    
             ItemLists = new ObservableCollection<ItemList>(itemListRepository.GetAll());
             ItemListsLimited = new ObservableCollection<ItemList>(itemListRepository.GetLimited(3));
             PredefinedLists = new ObservableCollection<ItemList>(itemListRepository.GetLimited(3));
+            ItemLists.CollectionChanged += List_CollectionChanged;
+            ItemListsLimited.CollectionChanged += List_CollectionChanged;
+            PredefinedLists.CollectionChanged += List_CollectionChanged;
+
+            Categories = new ObservableCollection<Category>(categoryRepository.GetAll());
+            Items = new ObservableCollection<Item>(itemRepository.GetAll());
+
             EmptyList = generateEmptyList();
             CurrentList = EmptyList;
+            
         }
 
-        private ItemRepository itemRepository = new ItemRepository();
-        private CategoryRepository categoryRepository = new CategoryRepository();
-        private ItemListRepository itemListRepository = new ItemListRepository();
+        public void ItemListsSaveChanges()
+        {
+            itemListRepository.Save();
+        }
+
+        private void List_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            ItemList itemList;
+
+            switch (e.Action)
+            {
+                case NotifyCollectionChangedAction.Add:
+                    itemList = e.NewItems[0] as ItemList;
+                    itemListRepository.Add(itemList);
+                    break;
+
+                case NotifyCollectionChangedAction.Move:
+                    itemListRepository.Save();
+                    break;
+
+                case NotifyCollectionChangedAction.Remove:
+                    itemList = e.OldItems[0] as ItemList;
+                    itemListRepository.Delete(itemList);
+                    break;
+
+                case NotifyCollectionChangedAction.Replace:
+                    itemListRepository.Save();
+                    break;
+
+                case NotifyCollectionChangedAction.Reset:
+                    itemListRepository.Save();
+                    break;
+
+                default:
+                    itemListRepository.Save();
+                    break;
+            }
+        }
+
+        private ItemRepository itemRepository;
+        private CategoryRepository categoryRepository;
+        private ItemListRepository itemListRepository;
 
         //private ObservableCollection<ItemList> generateItemLists(int limit = -1)
         //{

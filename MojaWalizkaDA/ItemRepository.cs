@@ -10,7 +10,12 @@ namespace MojaWalizkaDA
 {
     public class ItemRepository
     {
-        WalizkaAppContext ctx = new WalizkaAppContext();
+        WalizkaAppContext ctx;
+
+        public ItemRepository(WalizkaAppContext context)
+        {
+            ctx = context;
+        }
 
         public IQueryable<Item> GetAll()
         {
