@@ -5,7 +5,7 @@ Powinna umożliwić wybór rodzaju wyjazdu (służbowy/wakacyjny itd.) ze zbioru
 Przedmiot z listy predefiniowanej powinien być możliwy do usunięcia, tak aby pozostały na niej tylko potrzebne rzeczy.\
 Do listy predefiniowanej można również dodawać nowe przedmioty.\
 Końcowym efektem powinno być wygenerowanie dokumentu PDF z gotową do wydruku listą rzeczy.\
-Listy przedmiotów zapisywane są w bazie danych Sql Server Compact.\
+Listy przedmiotów zapisywane są w bazie danych Sql Server Compact.
 
 ## Funkcje programu
 
