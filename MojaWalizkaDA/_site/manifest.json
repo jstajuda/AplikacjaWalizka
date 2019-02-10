@@ -1,0 +1,211 @@
+{
+  "homepages": [],
+  "source_base_path": "C:/Users/jstaj/source/repos/MojaWalizkaApp/MojaWalizkaDA",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html",
+          "hash": "8AkKJd59GWCbGTB7poBwcw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/intro.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/intro.html",
+          "hash": "78eZ1NF0TmEjdJQsmWFssw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/toc.html",
+          "hash": "t7iiFrmuYmrKWisdq+lN6Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "FNBif8fCPFGsywA+oNvVsQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/MojaWalizkaDA.CategoryRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MojaWalizkaDA.CategoryRepository.html",
+          "hash": "cD8DpeGzonRfuKgWSQyVPw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/MojaWalizkaDA.IRepository-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MojaWalizkaDA.IRepository-1.html",
+          "hash": "w/lZAs8hEPH3Mrk36cnVeQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/MojaWalizkaDA.ItemListRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MojaWalizkaDA.ItemListRepository.html",
+          "hash": "HiubXGaQpT970c8nMG3pGQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/MojaWalizkaDA.ItemRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MojaWalizkaDA.ItemRepository.html",
+          "hash": "T/EGafCo/mlsW0iVL9w2ew=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/MojaWalizkaDA.WalizkaAppContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MojaWalizkaDA.WalizkaAppContext.html",
+          "hash": "Pw6fFZtOFUDh9qAekrv9RA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/MojaWalizkaDA.WalizkaAppDBInitializerProd.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MojaWalizkaDA.WalizkaAppDBInitializerProd.html",
+          "hash": "oAnL+XM+M/93meA1cYVXPw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/MojaWalizkaDA.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MojaWalizkaDA.html",
+          "hash": "XkUIhp/d2AjL3Q4oSkkUjQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "obj/api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "CK1TC1q3YpdfEOw5wig7dw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "Sg+nKmnHP++YKMT39ruhpw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot build incrementally because last build info is missing.",
+        "incrementalPhase": "build",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 7,
+          "skipped_file_count": 0
+        },
+        "ConceptualDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 3,
+          "skipped_file_count": 0
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot support incremental post processing, the reason is: last post processor info is null.",
+        "incrementalPhase": "postProcessing",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
