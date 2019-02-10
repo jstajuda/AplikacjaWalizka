@@ -34,10 +34,7 @@
                                             </Grid.ColumnDefinitions>
                                             <TextBlock Grid.Column="0" Text="{Binding Name}"></TextBlock>
                                             <StackPanel Name="SideListActionIcons" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
-                                                <Button ToolTip="Edytuj" Style="{StaticResource MaterialDesignFlatButton}" Width="Auto" Height="Auto" Padding="0">
-                                                    <materialDesign:PackIcon Kind="Edit" Width="16" Height="16" Margin="10 0 10 0" />
-                                                </Button>
-                                                <Button ToolTip="Usuń" Style="{StaticResource MaterialDesignFlatButton}" Width="Auto" Height="Auto" Padding="0">
+                                                <Button Name="SidePredefinedListDeleteButton" ToolTip="Usuń" Style="{StaticResource MaterialDesignFlatButton}" Width="Auto" Height="Auto" Padding="0" Click="SidePredefinedListDeleteButton_Click">
                                                     <materialDesign:PackIcon Kind="Delete" Width="16" Height="16" Margin="10 0 10 0" />
                                                 </Button>
                                             </StackPanel>
@@ -71,10 +68,7 @@
                                         </Grid.ColumnDefinitions>
                                         <TextBlock Grid.Column="0" Text="{Binding Name}"></TextBlock>
                                         <StackPanel Name="SideListActionIcons" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
-                                            <Button ToolTip="Edytuj" Style="{StaticResource MaterialDesignFlatButton}" Width="Auto" Height="Auto" Padding="0">
-                                                <materialDesign:PackIcon Kind="Edit" Width="16" Height="16" Margin="10 0 10 0" />
-                                            </Button>
-                                            <Button ToolTip="Usuń" Style="{StaticResource MaterialDesignFlatButton}" Width="Auto" Height="Auto" Padding="0">
+                                            <Button Name="SideLatestListDeleteButton" ToolTip="Usuń" Style="{StaticResource MaterialDesignFlatButton}" Width="Auto" Height="Auto" Padding="0" Click="SideLatestListDeleteButton_Click">
                                                 <materialDesign:PackIcon Kind="Delete" Width="16" Height="16" Margin="10 0 10 0" />
                                             </Button>
                                         </StackPanel>

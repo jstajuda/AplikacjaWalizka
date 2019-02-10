@@ -37,7 +37,9 @@ namespace MojaWalizkaApp.View
 
         private void EditItemButton_Click(object sender, RoutedEventArgs e)
         {
-
+            Item selectedItem = ItemsDataGrid.SelectedItem as Item;
+            EditItemWindow editItemView = new EditItemWindow(viewModel, selectedItem);
+            editItemView.ShowDialog();
         }
 
         private void DeleteItemButton_Click(object sender, RoutedEventArgs e)

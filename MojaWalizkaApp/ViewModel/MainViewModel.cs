@@ -81,7 +81,7 @@ namespace MojaWalizkaApp.ViewModel
         private ItemList emptyList;
         public ItemList EmptyList
         {
-            get => emptyList;
+            get => generateEmptyList();
             set
             {
                 emptyList = value;
@@ -99,21 +99,27 @@ namespace MojaWalizkaApp.ViewModel
             ItemLists = new ObservableCollection<ItemList>(itemListRepository.GetAll());
             ItemListsLimited = new ObservableCollection<ItemList>(itemListRepository.GetLimited(5));
             PredefinedLists = new ObservableCollection<ItemList>(itemListRepository.GetPredefined());
-            ItemLists.CollectionChanged += List_CollectionChanged;
             ItemListsLimited.CollectionChanged += List_CollectionChanged;
             PredefinedLists.CollectionChanged += List_CollectionChanged;
+            ItemLists.CollectionChanged += List_CollectionChanged;
 
             Categories = new ObservableCollection<Category>(categoryRepository.GetAll());
-            Items = new ObservableCollection<Item>(itemRepository.GetAll());
 
-            EmptyList = generateEmptyList();
+
+            Items = new ObservableCollection<Item>(itemRepository.GetAll());
+            Items.CollectionChanged += Items_CollectionChanged;
+
             CurrentList = EmptyList;
-            
-        }
+            }
 
         public void ItemListsSaveChanges()
         {
             itemListRepository.Save();
+        }
+
+        public void ItemsSaveChanges()
+        {
+            itemRepository.Save();
         }
 
         public void ItemListsRefresh()
@@ -153,6 +159,40 @@ namespace MojaWalizkaApp.ViewModel
 
                 default:
                     itemListRepository.Save();
+                    break;
+            }
+        }
+        private void Items_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        {
+
+            Item item;
+
+            switch (e.Action)
+            {
+                case NotifyCollectionChangedAction.Add:
+                    item = e.NewItems[0] as Item;
+                    itemRepository.Add(item);
+                    break;
+
+                case NotifyCollectionChangedAction.Move:
+                    itemRepository.Save();
+                    break;
+
+                case NotifyCollectionChangedAction.Remove:
+                    item = e.OldItems[0] as Item;
+                    itemRepository.Delete(item);
+                    break;
+
+                case NotifyCollectionChangedAction.Replace:
+                    itemRepository.Save();
+                    break;
+
+                case NotifyCollectionChangedAction.Reset:
+                    itemRepository.Save();
+                    break;
+
+                default:
+                    itemRepository.Save();
                     break;
             }
         }

@@ -29,7 +29,7 @@ namespace MojaWalizkaApp.View
             InitializeComponent();
 
             main = mainViewModel;
-            LatestTripsListView.ItemsSource = main.ItemListsLimited;
+            LatestTripsListView.ItemsSource = main.ItemLists.Take(5);
             PredefinedListView.ItemsSource = main.PredefinedLists;
         }
 
@@ -51,6 +51,22 @@ namespace MojaWalizkaApp.View
 
         private void CreateEmptyListButton_Click(object sender, RoutedEventArgs e)
         {
+            main.CurrentList = main.EmptyList;
+        }
+
+        private void SidePredefinedListDeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            ItemList list = button.DataContext as ItemList;
+            main.PredefinedLists.Remove(list);
+            main.CurrentList = main.EmptyList;
+        }
+
+        public void SideLatestListDeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            ItemList list = button.DataContext as ItemList;
+            main.ItemLists.Remove(list);
             main.CurrentList = main.EmptyList;
         }
     }

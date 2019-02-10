@@ -109,7 +109,7 @@ namespace MojaWalizkaDA
             context.ItemLists.Add(itemList);
             context.SaveChanges();
 
-            //Wyjazd służbowy
+            //Wczasy nad morzem
             items = context.Items.Where(i => i.CategoryId == 3).ToList<Item>();
             itemList = context.ItemLists.Add(new ItemList()
             {
@@ -152,11 +152,53 @@ namespace MojaWalizkaDA
             context.ItemLists.Add(itemList);
             context.SaveChanges();
 
-            //Warszawa
+            //Konferencja
             items = context.Items.Where(i => i.Id % 3 == 2).ToList<Item>();
             itemList = context.ItemLists.Add(new ItemList()
             {
                 Name = "GetNet Poznań 2017",
+                Description = "Konferencja",
+                Items = new ObservableCollection<Item>(items),
+                CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.Now,
+                IsPredefined = false
+            });
+            context.ItemLists.Add(itemList);
+            context.SaveChanges();
+
+            //Praga2
+            items = context.Items.Where(i => i.Id % 3 == 0).ToList<Item>();
+            itemList = context.ItemLists.Add(new ItemList()
+            {
+                Name = "Weekend w Pradze 2",
+                Description = "Spontaniczny wypad ze znajomymi",
+                Items = new ObservableCollection<Item>(items),
+                CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.Now,
+                IsPredefined = false
+            });
+            context.ItemLists.Add(itemList);
+            context.SaveChanges();
+
+            //Bieszczady2
+            items = context.Items.Where(i => i.Id % 3 == 1).ToList<Item>();
+            itemList = context.ItemLists.Add(new ItemList()
+            {
+                Name = "Bieszczady - jesień 2018 2",
+                Description = "Pobyt w schronisku na Rawce",
+                Items = new ObservableCollection<Item>(items),
+                CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.Now,
+                IsPredefined = false
+            });
+            context.ItemLists.Add(itemList);
+            context.SaveChanges();
+
+            //Konferencja 2
+            items = context.Items.Where(i => i.Id % 3 == 2).ToList<Item>();
+            itemList = context.ItemLists.Add(new ItemList()
+            {
+                Name = "GetNet Poznań 2017 2",
                 Description = "Konferencja",
                 Items = new ObservableCollection<Item>(items),
                 CreatedAt = DateTime.Now,
