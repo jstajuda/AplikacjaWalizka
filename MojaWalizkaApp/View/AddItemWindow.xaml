@@ -33,7 +33,7 @@
             <Grid>
                 <Label Content="Category" Padding="0" Margin="0 0 0 10" FontWeight="DemiBold"></Label>
                 <TextBlock HorizontalAlignment="Right">
-                    <Hyperlink
+                    <Hyperlink Name="ListCategoriesButton" Click="ListCategoriesButton_Click"
                         Style="{StaticResource MaterialDesignCaptionHyperlink}" Foreground="#6795e0">
                         Zarządzaj kategoriami
                     </Hyperlink>

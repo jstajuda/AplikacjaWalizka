@@ -32,8 +32,8 @@
             <Grid>
                 <Label Content="Category" Padding="0" Margin="0 0 0 10" FontWeight="DemiBold"></Label>
                 <TextBlock HorizontalAlignment="Right">
-                    <Hyperlink
-                        Style="{StaticResource MaterialDesignCaptionHyperlink}" Foreground="#6795e0">
+                    <Hyperlink Name="ListCategoriesButton"
+                        Style="{StaticResource MaterialDesignCaptionHyperlink}" Foreground="#6795e0" Click="ListCategoriesButton_Click">
                         Zarządzaj kategoriami
                     </Hyperlink>
                 </TextBlock>

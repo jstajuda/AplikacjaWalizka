@@ -86,6 +86,9 @@
     <Compile Include="View\EditItemWindow.xaml.cs">
       <DependentUpon>EditItemWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ListCategoriesWindow.xaml.cs">
+      <DependentUpon>ListCategoriesWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ListItemsWindow.xaml.cs">
       <DependentUpon>ListItemsWindow.xaml</DependentUpon>
     </Compile>
@@ -112,6 +115,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\EditItemWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ListCategoriesWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -61,10 +61,16 @@ namespace MojaWalizkaApp.View
 
         private void AddItemCancelButton_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Close();
         }
 
-        
+        private void ListCategoriesButton_Click(object sender, RoutedEventArgs e)
+        {
+            ListCategoriesWindow listCategoriesView = new ListCategoriesWindow(viewModel);
+            listCategoriesView.ShowDialog();
+        }
+
+
 
 
 

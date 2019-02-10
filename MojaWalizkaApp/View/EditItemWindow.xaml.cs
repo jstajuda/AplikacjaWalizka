@@ -69,5 +69,11 @@ namespace MojaWalizkaApp.View
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        private void ListCategoriesButton_Click(object sender, RoutedEventArgs e)
+        {
+            ListCategoriesWindow listCategoriesView = new ListCategoriesWindow(viewModel);
+            listCategoriesView.ShowDialog();
+        }
     }
 }

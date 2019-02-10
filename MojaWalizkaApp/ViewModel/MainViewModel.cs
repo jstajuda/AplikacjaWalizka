@@ -97,20 +97,22 @@ namespace MojaWalizkaApp.ViewModel
             itemListRepository = new ItemListRepository(context);
     
             ItemLists = new ObservableCollection<ItemList>(itemListRepository.GetAll());
-            ItemListsLimited = new ObservableCollection<ItemList>(itemListRepository.GetLimited(5));
-            PredefinedLists = new ObservableCollection<ItemList>(itemListRepository.GetPredefined());
-            ItemListsLimited.CollectionChanged += List_CollectionChanged;
-            PredefinedLists.CollectionChanged += List_CollectionChanged;
             ItemLists.CollectionChanged += List_CollectionChanged;
 
-            Categories = new ObservableCollection<Category>(categoryRepository.GetAll());
+            ItemListsLimited = new ObservableCollection<ItemList>(itemListRepository.GetLimited(5));
+            ItemListsLimited.CollectionChanged += List_CollectionChanged;
 
+            PredefinedLists = new ObservableCollection<ItemList>(itemListRepository.GetPredefined());
+            PredefinedLists.CollectionChanged += List_CollectionChanged;
+
+            Categories = new ObservableCollection<Category>(categoryRepository.GetAll());
+            Categories.CollectionChanged += Categories_CollectionChanged;
 
             Items = new ObservableCollection<Item>(itemRepository.GetAll());
             Items.CollectionChanged += Items_CollectionChanged;
 
             CurrentList = EmptyList;
-            }
+        }
 
         public void ItemListsSaveChanges()
         {
@@ -193,6 +195,40 @@ namespace MojaWalizkaApp.ViewModel
 
                 default:
                     itemRepository.Save();
+                    break;
+            }
+        }
+        private void Categories_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        {
+
+            Category item;
+
+            switch (e.Action)
+            {
+                case NotifyCollectionChangedAction.Add:
+                    item = e.NewItems[0] as Category;
+                    categoryRepository.Add(item);
+                    break;
+
+                case NotifyCollectionChangedAction.Move:
+                    categoryRepository.Save();
+                    break;
+
+                case NotifyCollectionChangedAction.Remove:
+                    item = e.OldItems[0] as Category;
+                    categoryRepository.Delete(item);
+                    break;
+
+                case NotifyCollectionChangedAction.Replace:
+                    categoryRepository.Save();
+                    break;
+
+                case NotifyCollectionChangedAction.Reset:
+                    categoryRepository.Save();
+                    break;
+
+                default:
+                    categoryRepository.Save();
                     break;
             }
         }
