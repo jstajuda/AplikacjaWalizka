@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 
 namespace MojaWalizkaBL
 {
+    /// <summary>
+    /// Klasa reprezentuje przedmioty możliwe do umieszczenia na listach.
+    /// </summary>
     [Table("Items")]
     public class Item : INotifyPropertyChanged
     {
@@ -17,6 +20,9 @@ namespace MojaWalizkaBL
         public int Id { get; set; }
 
         private string name;
+        /// <summary>
+        /// Nazwa przedmiotu.
+        /// </summary>
         [Required]
         [StringLength(100)]
         public string Name
@@ -30,6 +36,9 @@ namespace MojaWalizkaBL
         }
 
         private string description;
+        /// <summary>
+        /// Krótki opis przedmiotu.
+        /// </summary>
         [StringLength(200)]
         public string Description
         {
@@ -41,7 +50,11 @@ namespace MojaWalizkaBL
             }
         }
 
+
         private int categoryId;
+        /// <summary>
+        /// Id kategorii, do której przypisany jest przedmiot.
+        /// </summary>
         public int CategoryId
         {
             get => categoryId;
@@ -53,6 +66,9 @@ namespace MojaWalizkaBL
         }
 
         private Category category;
+        /// <summary>
+        /// Obiekt kategorii, do której przypisany jest przedmiot.
+        /// </summary>
         public virtual Category Category
         {
             get => category;
@@ -64,6 +80,9 @@ namespace MojaWalizkaBL
         }
 
         private ICollection<ItemList> itemLists;
+        /// <summary>
+        /// Kolekcja list, do których przypisany jest przedmiot.
+        /// </summary>
         public virtual ICollection<ItemList> ItemLists
         {
             get => itemLists;

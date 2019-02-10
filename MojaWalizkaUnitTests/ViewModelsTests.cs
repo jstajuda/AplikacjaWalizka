@@ -4,11 +4,8 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace MojaWalizkaUnitTests
 {
     [TestClass]
-    public class UnitTest1
+    public class ViewModelsTests
     {
-        [TestMethod]
-        public void TestMethod1()
-        {
-        }
+        //TODO: Viewmodels tests using fake repositories
     }
 }

@@ -99,9 +99,6 @@ namespace MojaWalizkaApp.ViewModel
             ItemLists = new ObservableCollection<ItemList>(itemListRepository.GetAll());
             ItemLists.CollectionChanged += List_CollectionChanged;
 
-            ItemListsLimited = new ObservableCollection<ItemList>(itemListRepository.GetLimited(5));
-            ItemListsLimited.CollectionChanged += List_CollectionChanged;
-
             PredefinedLists = new ObservableCollection<ItemList>(itemListRepository.GetPredefined());
             PredefinedLists.CollectionChanged += List_CollectionChanged;
 
@@ -124,11 +121,9 @@ namespace MojaWalizkaApp.ViewModel
             itemRepository.Save();
         }
 
-        public void ItemListsRefresh()
+        public void CategoriesSaveChanges()
         {
-            ItemLists = new ObservableCollection<ItemList>(itemListRepository.GetAll());
-            ItemListsLimited = new ObservableCollection<ItemList>(itemListRepository.GetLimited(3));
-            PredefinedLists = new ObservableCollection<ItemList>(itemListRepository.GetPredefined());
+            categoryRepository.Save();
         }
 
         private void List_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)

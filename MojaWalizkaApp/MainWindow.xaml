@@ -44,8 +44,11 @@
                 </Grid.Resources>
 
                 <StackPanel Grid.Column="0" VerticalAlignment="Center" Margin="0 0 0 20">
-                    <TextBox FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center"
-                       FontSize="24" Foreground="#333333" Text="{Binding Path=CurrentList.Name}"></TextBox>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+                        <TextBox Name="CurrentListNameTextBox" FontWeight="Bold" 
+                           FontSize="24" Foreground="#333333" Text="{Binding Path=CurrentList.Name}" MaxLength="100" MinWidth="100"></TextBox>
+                        <Label Name="CurrentListNameLabel" Foreground="Red"></Label>
+                    </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0 20 0 0">
                         <Label Content="Lista predefiniowana " VerticalAlignment="Center" Padding="0" Foreground="#777777"></Label>
                         <ToggleButton Name="IsPredefinedToggleButton" IsChecked="{Binding Path=CurrentList.IsPredefined}" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton" />

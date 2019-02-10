@@ -10,13 +10,20 @@ using System.Threading.Tasks;
 
 namespace MojaWalizkaBL
 {
+    /// <summary>
+    /// Klasa reprezentuje kategorię służącą do klasyfikowania przedmiotów.
+    /// </summary>
     [Table("Categories")]
     public class Category : INotifyPropertyChanged
     {
         [Key]
         public int Id { get; set; }
 
+       
         private string name;
+        /// <summary>
+        /// Nazwa kategorii.
+        /// </summary>
         [Required]
         [StringLength(100)]
         public string Name
@@ -30,6 +37,9 @@ namespace MojaWalizkaBL
         }
 
         private string description;
+        /// <summary>
+        /// Krótki opis kategorii.
+        /// </summary>
         [StringLength(200)]
         public string Description
         {
@@ -41,6 +51,9 @@ namespace MojaWalizkaBL
             }
         }
 
+        /// <summary>
+        /// Kolekcja powiązanych z kategorią przedmiotów.
+        /// </summary>
         public virtual ICollection<Item> Items { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;

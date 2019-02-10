@@ -42,16 +42,25 @@ namespace MojaWalizkaApp.View
 
         private void EditCategoryOkButton_Click(object sender, RoutedEventArgs e)
         {
-            //WAŻNE - WALIDACJA DANYCH
+            bool isValid = true;
+
             string categoryName = CategoryNameTextBox.Text;
             string categoryDescription = CategoryDescriptionTextBox.Text;
 
-            selectedItem.Name = categoryName;
-            selectedItem.Description = categoryDescription;
-
-            viewModel.ItemsSaveChanges();
-
-            this.Close();
+            if (String.IsNullOrWhiteSpace(categoryName))
+            {
+                isValid = false;
+                CategoryNameLabel.Content = "Category Name (nazwa nie może być pusta!)";
+                CategoryNameLabel.Foreground = Brushes.Red;
+            }
+            
+            if(isValid)
+            {
+                selectedItem.Name = categoryName.Trim();
+                selectedItem.Description = categoryDescription.Trim();
+                viewModel.ItemsSaveChanges();
+                this.Close();
+            }
         }
 
         private void EditCategoryCancelButton_Click(object sender, RoutedEventArgs e)

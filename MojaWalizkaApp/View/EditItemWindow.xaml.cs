@@ -45,18 +45,34 @@ namespace MojaWalizkaApp.View
 
         private void EditItemOkButton_Click(object sender, RoutedEventArgs e)
         {
-            //WAŻNE - WALIDACJA DANYCH
+            bool isValid = true;
+
             string itemName = ItemNameTextBox.Text;
             string itemDescription = ItemDescriptionTextBox.Text;
             Category itemCategory = CategoriesComboBox.SelectedItem as Category;
 
-            selectedItem.Name = itemName;
-            selectedItem.Description = itemDescription;
-            selectedItem.CategoryId = itemCategory.Id;
+            if (String.IsNullOrWhiteSpace(itemName))
+            {
+                isValid = false;
+                ItemNameLabel.Content = "Item Name (nazwa nie może być pusta)";
+                ItemNameLabel.Foreground = Brushes.Red;
+            }
 
-            viewModel.ItemsSaveChanges();
+            if (itemCategory == null)
+            {
+                isValid = false;
+                ItemCategoryLabel.Content = "Category (należy wybrać kategorię)";
+                ItemCategoryLabel.Foreground = Brushes.Red;
+            }
 
-            this.Close();
+            if (isValid)
+            {
+                selectedItem.Name = itemName.Trim();
+                selectedItem.Description = itemDescription.Trim();
+                selectedItem.CategoryId = itemCategory.Id;
+                viewModel.ItemsSaveChanges();
+                this.Close();
+            }
         }
 
         private void EditItemCancelButton_Click(object sender, RoutedEventArgs e)

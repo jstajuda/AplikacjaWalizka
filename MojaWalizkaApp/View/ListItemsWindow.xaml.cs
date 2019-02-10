@@ -56,8 +56,15 @@ namespace MojaWalizkaApp.View
         private void AddToListButton_Click(object sender, RoutedEventArgs e)
         {
             Item selectedItem = ItemsDataGrid.SelectedItem as Item;
-            viewModel.CurrentList.Items.Add(selectedItem);
-            this.Close();
+            if(selectedItem != null)
+            {
+                viewModel.CurrentList.Items.Add(selectedItem);
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Nie wybrano przedmiotu!");
+            }
         }
     }
 }

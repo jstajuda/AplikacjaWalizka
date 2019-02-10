@@ -55,14 +55,27 @@ namespace MojaWalizkaApp
 
         private void SaveListButton_Click(object sender, RoutedEventArgs e)
         {
-            if(viewModel.CurrentList.Id == 0)
+            bool isValid = true;
+
+            if(String.IsNullOrWhiteSpace(CurrentListNameTextBox.Text))
             {
-                viewModel.ItemLists.Add(viewModel.CurrentList);
+                isValid = false;
+                CurrentListNameLabel.Content = "Nazwa nie może być pusta!";
             }
-            viewModel.ItemListsSaveChanges();
-            viewModel.ItemListsRefresh();
-            var navigationView = new MainNavigationView(viewModel);
-            MainNavigation.Content = navigationView;
+
+            if(isValid)
+            {
+                CurrentListNameLabel.Content = "";
+                viewModel.CurrentList.Name = CurrentListNameTextBox.Text.Trim();
+                if (viewModel.CurrentList.Id == 0)
+                {
+                    viewModel.ItemLists.Add(viewModel.CurrentList);
+                }
+                viewModel.ItemListsSaveChanges();
+
+                var navigationView = new MainNavigationView(viewModel);
+                MainNavigation.Content = navigationView;
+            }
         }
 
         private void ListUpdatedAtTextBlock_SourceUpdated(object sender, DataTransferEventArgs e)

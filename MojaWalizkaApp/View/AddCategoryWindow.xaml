@@ -24,11 +24,11 @@
 
         <StackPanel Margin="20" Grid.ColumnSpan="2">
 
-            <Label Content="Category Name" Padding="0" Margin="0 0 0 10" FontWeight="DemiBold"></Label>
-            <TextBox Name="NewItemNameTextBox" Grid.Column="1" Margin="0 0 0 40"></TextBox>
+            <Label Name="CategoryNameLabel" Content="Category Name" Padding="0" Margin="0 0 0 10" FontWeight="DemiBold"></Label>
+            <TextBox Name="NewItemNameTextBox" Grid.Column="1" Margin="0 0 0 40" MaxLength="100"></TextBox>
 
             <Label Content="Category Short Description" Padding="0" Margin="0 0 0 10" FontWeight="DemiBold"></Label>
-            <TextBox Name="NewItemDescriptionTextBox" Grid.Column="1" Margin="0 0 0 40"></TextBox>
+            <TextBox Name="NewItemDescriptionTextBox" Grid.Column="1" Margin="0 0 0 40" MaxLength="200"></TextBox>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <Button Name="AddCategoryCancelButton" Content="Cancel" Click="AddCategoryCancelButton_Click" Style="{StaticResource MaterialDesignFlatButton}"></Button>

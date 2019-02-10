@@ -11,6 +11,9 @@ using System.Threading.Tasks;
 
 namespace MojaWalizkaBL
 {
+    /// <summary>
+    /// Klasa reprezentuje listę przedmiotów.
+    /// </summary>
     [Table("ItemLists")]
     public class ItemList : INotifyPropertyChanged
     {
@@ -18,6 +21,9 @@ namespace MojaWalizkaBL
         public int Id { get; set; }
 
         private string name;
+        /// <summary>
+        /// Nazwa listy przedmiotów.
+        /// </summary>
         [Required]
         [StringLength(100)]
         public string Name
@@ -31,6 +37,9 @@ namespace MojaWalizkaBL
         }
 
         private string description;
+        /// <summary>
+        /// Krótki opis listy przedmiotów.
+        /// </summary>
         [StringLength(200)]
         public string Description
         {
@@ -43,6 +52,9 @@ namespace MojaWalizkaBL
         }
 
         private DateTime? createdAt;
+        /// <summary>
+        /// Data utworzenia listy przedmiotów.
+        /// </summary>
         public DateTime? CreatedAt
         {
             get => createdAt;
@@ -54,6 +66,9 @@ namespace MojaWalizkaBL
         }
 
         private DateTime? updatedAt;
+        /// <summary>
+        /// Data modyfikacji listy przedmiotów.
+        /// </summary>
         public DateTime? UpdatedAt
         {
             get => updatedAt;
@@ -65,6 +80,9 @@ namespace MojaWalizkaBL
         }
 
         private ObservableCollection<Item> items;
+        /// <summary>
+        /// Kolekcja przedmiotów przypisanych do listy.
+        /// </summary>
         public virtual ObservableCollection<Item> Items
         {
             get => items;
@@ -76,6 +94,9 @@ namespace MojaWalizkaBL
         }
 
         private bool isPredefined;
+        /// <summary>
+        /// Czy lista jest listą predefiniowaną (tak / nie).
+        /// </summary>
         public bool IsPredefined
         {
             get => isPredefined;
@@ -84,22 +105,6 @@ namespace MojaWalizkaBL
                 isPredefined = value;
                 NotifyPropertyChanged();
             }
-        }
-
-        public ItemList()
-        {
-
-        }
-
-        public ItemList(string name, string description, ObservableCollection<Item> items = null, bool isPredefined = false)
-        {
-            Id = 0;
-            Name = name;
-            Description = description;
-            CreatedAt = DateTime.Now;
-            UpdatedAt = null;
-            Items = items;
-            IsPredefined = isPredefined;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

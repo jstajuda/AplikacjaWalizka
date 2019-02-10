@@ -35,17 +35,29 @@ namespace MojaWalizkaApp.View
 
         private void AddCategoryOkButton_Click(object sender, RoutedEventArgs e)
         {
-            //WAŻNE - WALIDACJA DANYCH
+            bool isValid = true;
+
             string categoryName = NewItemNameTextBox.Text;
             string categoryDescription = NewItemDescriptionTextBox.Text;
 
-            this.viewModel.Categories.Add(new Category()
+            if (String.IsNullOrWhiteSpace(categoryName))
             {
-                Name = categoryName,
-                Description = categoryDescription,
-            });
+                isValid = false;
+                CategoryNameLabel.Content = "Category Name (nazwa nie może być pusta!)";
+                CategoryNameLabel.Foreground = Brushes.Red;
+            }
 
-            this.Close();
+            if(isValid)
+            {
+                this.viewModel.Categories.Add(new Category()
+                {
+                    Name = categoryName.Trim(),
+                    Description = categoryDescription.Trim()
+                });
+                this.viewModel.CategoriesSaveChanges();
+                this.Close();
+            }
+            
         }
 
         private void AddCategoryCancelButton_Click(object sender, RoutedEventArgs e)
