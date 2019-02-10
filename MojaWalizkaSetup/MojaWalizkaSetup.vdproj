@@ -45,13 +45,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_7A9461C6768C421BB4D29D6F60860202"
+        "MsmKey" = "8:_71EC0FE4EA9745729BBC1F47F9C799CA"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_96FE227B30DC49ADB86194302CC9046C"
+        "MsmKey" = "8:_7A9461C6768C421BB4D29D6F60860202"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -118,24 +118,6 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_3EB55CF1EE4E4C2629BB70E5FD36CA0D"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_AE322346AB648B66167CA2A55A3DA888"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_BF5175C8D569188A8440998B6A615F39"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_F226A21BA37E4312A7CA8946F940E90E"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -172,7 +154,25 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_AE322346AB648B66167CA2A55A3DA888"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_98362F6B0958F92F94FCD20100E5DB8B"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_BF5175C8D569188A8440998B6A615F39"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_3EB55CF1EE4E4C2629BB70E5FD36CA0D"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -193,6 +193,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -209,6 +217,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.1"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.6.1"
+                    }
+                }
+            }
         }
     }
     "Deployable"
@@ -362,10 +386,10 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7A9461C6768C421BB4D29D6F60860202"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_71EC0FE4EA9745729BBC1F47F9C799CA"
             {
-            "SourcePath" = "8:..\\MojaWalizkaApp\\bin\\Debug\\Database.sdf"
-            "TargetName" = "8:Database.sdf"
+            "SourcePath" = "8:..\\MojaWalizkaApp\\icon.ico"
+            "TargetName" = "8:icon.ico"
             "Tag" = "8:"
             "Folder" = "8:_003D8B8624C04C2F94433C630B16AA69"
             "Condition" = "8:"
@@ -382,10 +406,10 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_96FE227B30DC49ADB86194302CC9046C"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7A9461C6768C421BB4D29D6F60860202"
             {
-            "SourcePath" = "8:..\\..\\..\\..\\Desktop\\wsei\\icon.ico"
-            "TargetName" = "8:icon.ico"
+            "SourcePath" = "8:..\\MojaWalizkaApp\\bin\\Debug\\Database.sdf"
+            "TargetName" = "8:Database.sdf"
             "Tag" = "8:"
             "Folder" = "8:_003D8B8624C04C2F94433C630B16AA69"
             "Condition" = "8:"
@@ -614,7 +638,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:MojaWalizka"
         "ProductCode" = "8:{0857AD25-51C4-42A7-BE75-DA57EAF03852}"
-        "PackageCode" = "8:{9F99EC12-12A3-463D-89BD-107EE2705425}"
+        "PackageCode" = "8:{3B0BAAC6-F5DE-4493-844A-A019D645C342}"
         "UpgradeCode" = "8:{1BDCE7B9-2558-4A38-8011-F5207407E083}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -631,7 +655,7 @@
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:"
         "ARPURLINFOABOUT" = "8:"
-        "ARPPRODUCTICON" = "8:_96FE227B30DC49ADB86194302CC9046C"
+        "ARPPRODUCTICON" = "8:_71EC0FE4EA9745729BBC1F47F9C799CA"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
@@ -734,9 +758,9 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_C90D390D05F94F309D4845573C67CED3"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_2100BD3B58924031899CC96325A711E3"
             {
-            "Name" = "8:MojaWalizka"
+            "Name" = "8:Moja Walizka"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
@@ -745,12 +769,12 @@
             "Target" = "8:_F226A21BA37E4312A7CA8946F940E90E"
             "Folder" = "8:_8150E41068874D23AA2FF821E12F2BA6"
             "WorkingFolder" = "8:_003D8B8624C04C2F94433C630B16AA69"
-            "Icon" = "8:_96FE227B30DC49ADB86194302CC9046C"
+            "Icon" = "8:_71EC0FE4EA9745729BBC1F47F9C799CA"
             "Feature" = "8:"
             }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_FA3CC2CDCF914BD1B88B4B2FE3809A6C"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_2F51730BA6FC4DCAA00AB9A40E78A8D6"
             {
-            "Name" = "8:MojaWalizka"
+            "Name" = "8:Moja Walizka"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
@@ -759,7 +783,7 @@
             "Target" = "8:_F226A21BA37E4312A7CA8946F940E90E"
             "Folder" = "8:_A6F8B45C57D0420A82F15900F279B78C"
             "WorkingFolder" = "8:_003D8B8624C04C2F94433C630B16AA69"
-            "Icon" = "8:_96FE227B30DC49ADB86194302CC9046C"
+            "Icon" = "8:_71EC0FE4EA9745729BBC1F47F9C799CA"
             "Feature" = "8:"
             }
         }
