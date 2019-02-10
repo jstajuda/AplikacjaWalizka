@@ -38,3 +38,5 @@ Listy przedmiotów zapisywane są w bazie danych Sql Server Compact.
 ## Autorzy
 - Krzysztof Piotrowski
 - Jarosław Stajuda
+
+Projekt zaliczeniowy WSEI Kraków.
