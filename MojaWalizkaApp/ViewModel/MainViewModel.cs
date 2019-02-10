@@ -90,8 +90,6 @@ namespace MojaWalizkaApp.ViewModel
         }
 
 
-
-
         public MainViewModel(WalizkaAppContext context)
         {
             itemRepository = new ItemRepository(context);

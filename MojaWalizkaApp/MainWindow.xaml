@@ -13,7 +13,7 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Title="Moja Walizka" WindowState="Maximized" d:DesignWidth="1167.975" d:DesignHeight="787.8">
+        Title="Moja Walizka" WindowState="Maximized" Icon="icon.ico" d:DesignWidth="1167.975" d:DesignHeight="787.8">
 
     
     <Grid>

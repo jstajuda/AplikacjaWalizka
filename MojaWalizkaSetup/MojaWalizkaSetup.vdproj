@@ -51,8 +51,14 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_96FE227B30DC49ADB86194302CC9046C"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_98362F6B0958F92F94FCD20100E5DB8B"
-        "OwnerKey" = "8:_A53ED66657E9AC70FE6E3705C28E624D"
+        "OwnerKey" = "8:_AE322346AB648B66167CA2A55A3DA888"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -75,7 +81,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_A53ED66657E9AC70FE6E3705C28E624D"
+        "MsmKey" = "8:_AE322346AB648B66167CA2A55A3DA888"
         "OwnerKey" = "8:_F226A21BA37E4312A7CA8946F940E90E"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -87,20 +93,20 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_BF5175C8D569188A8440998B6A615F39"
+        "OwnerKey" = "8:_F226A21BA37E4312A7CA8946F940E90E"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_BF5175C8D569188A8440998B6A615F39"
+        "OwnerKey" = "8:_AE322346AB648B66167CA2A55A3DA888"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_DA8A2EF2BCC5F2DC62F5E89896FF8876"
         "OwnerKey" = "8:_F226A21BA37E4312A7CA8946F940E90E"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_E2F3EEABF12BE75F89D886C5A4954B34"
-        "OwnerKey" = "8:_F226A21BA37E4312A7CA8946F940E90E"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_E2F3EEABF12BE75F89D886C5A4954B34"
-        "OwnerKey" = "8:_A53ED66657E9AC70FE6E3705C28E624D"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -113,6 +119,18 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_3EB55CF1EE4E4C2629BB70E5FD36CA0D"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_AE322346AB648B66167CA2A55A3DA888"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_BF5175C8D569188A8440998B6A615F39"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -154,19 +172,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_A53ED66657E9AC70FE6E3705C28E624D"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_98362F6B0958F92F94FCD20100E5DB8B"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_E2F3EEABF12BE75F89D886C5A4954B34"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -376,6 +382,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_96FE227B30DC49ADB86194302CC9046C"
+            {
+            "SourcePath" = "8:..\\..\\..\\..\\Desktop\\wsei\\icon.ico"
+            "TargetName" = "8:icon.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_003D8B8624C04C2F94433C630B16AA69"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_98362F6B0958F92F94FCD20100E5DB8B"
             {
             "AssemblyRegister" = "3:1"
@@ -407,14 +433,14 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_A53ED66657E9AC70FE6E3705C28E624D"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_AE322346AB648B66167CA2A55A3DA888"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:MojaWalizkaDA, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_A53ED66657E9AC70FE6E3705C28E624D"
+                    "_AE322346AB648B66167CA2A55A3DA888"
                     {
                     "Name" = "8:MojaWalizkaDA.dll"
                     "Attributes" = "3:512"
@@ -469,20 +495,20 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_DA8A2EF2BCC5F2DC62F5E89896FF8876"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_BF5175C8D569188A8440998B6A615F39"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:MaterialDesignColors, Version=1.0.0.14576, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:MojaWalizkaBL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_DA8A2EF2BCC5F2DC62F5E89896FF8876"
+                    "_BF5175C8D569188A8440998B6A615F39"
                     {
-                    "Name" = "8:MaterialDesignColors.dll"
+                    "Name" = "8:MojaWalizkaBL.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:MaterialDesignColors.dll"
+            "SourcePath" = "8:MojaWalizkaBL.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_003D8B8624C04C2F94433C630B16AA69"
@@ -500,20 +526,20 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_E2F3EEABF12BE75F89D886C5A4954B34"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_DA8A2EF2BCC5F2DC62F5E89896FF8876"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:MojaWalizkaBL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:MaterialDesignColors, Version=1.0.0.14576, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_E2F3EEABF12BE75F89D886C5A4954B34"
+                    "_DA8A2EF2BCC5F2DC62F5E89896FF8876"
                     {
-                    "Name" = "8:MojaWalizkaBL.dll"
+                    "Name" = "8:MaterialDesignColors.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:MojaWalizkaBL.dll"
+            "SourcePath" = "8:MaterialDesignColors.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_003D8B8624C04C2F94433C630B16AA69"
@@ -588,13 +614,13 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:MojaWalizka"
         "ProductCode" = "8:{0857AD25-51C4-42A7-BE75-DA57EAF03852}"
-        "PackageCode" = "8:{4B500B5C-3B51-4467-9E51-57B30FE0132D}"
+        "PackageCode" = "8:{9F99EC12-12A3-463D-89BD-107EE2705425}"
         "UpgradeCode" = "8:{1BDCE7B9-2558-4A38-8011-F5207407E083}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
         "DetectNewerInstalledVersion" = "11:TRUE"
-        "InstallAllUsers" = "11:TRUE"
+        "InstallAllUsers" = "11:FALSE"
         "ProductVersion" = "8:1.0.0"
         "Manufacturer" = "8:KPJS"
         "ARPHELPTELEPHONE" = "8:"
@@ -605,7 +631,7 @@
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:"
         "ARPURLINFOABOUT" = "8:"
-        "ARPPRODUCTICON" = "8:"
+        "ARPPRODUCTICON" = "8:_96FE227B30DC49ADB86194302CC9046C"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
@@ -719,7 +745,7 @@
             "Target" = "8:_F226A21BA37E4312A7CA8946F940E90E"
             "Folder" = "8:_8150E41068874D23AA2FF821E12F2BA6"
             "WorkingFolder" = "8:_003D8B8624C04C2F94433C630B16AA69"
-            "Icon" = "8:"
+            "Icon" = "8:_96FE227B30DC49ADB86194302CC9046C"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_FA3CC2CDCF914BD1B88B4B2FE3809A6C"
@@ -733,7 +759,7 @@
             "Target" = "8:_F226A21BA37E4312A7CA8946F940E90E"
             "Folder" = "8:_A6F8B45C57D0420A82F15900F279B78C"
             "WorkingFolder" = "8:_003D8B8624C04C2F94433C630B16AA69"
-            "Icon" = "8:"
+            "Icon" = "8:_96FE227B30DC49ADB86194302CC9046C"
             "Feature" = "8:"
             }
         }
