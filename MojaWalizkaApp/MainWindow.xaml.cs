@@ -70,5 +70,11 @@ namespace MojaWalizkaApp
             ListUpdatedAtTextBlock.Text = String.IsNullOrWhiteSpace(ListUpdatedAtTextBlock.Text) ?
                                           "Niezapisane" : viewModel.CurrentList.UpdatedAt.ToString();
         }
+
+        private void ListCategoriesButton_Click(object sender, RoutedEventArgs e)
+        {
+            ListCategoriesWindow listCategoriesView = new ListCategoriesWindow(viewModel);
+            listCategoriesView.ShowDialog();
+        }
     }
 }

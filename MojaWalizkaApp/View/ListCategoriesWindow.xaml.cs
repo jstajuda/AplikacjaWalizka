@@ -36,20 +36,27 @@ namespace MojaWalizkaApp.View
 
         private void EditCategoryButton_Click(object sender, RoutedEventArgs e)
         {
-            //Category selectedItem = CategoriesDataGrid.SelectedItem as Category;
-            //EditCategoryWindow editCategoryWindow = new EditCategoryWindow(viewModel, selectedItem);
-            //editCategoryWindow.ShowDialog();
+            Category selectedItem = CategoriesDataGrid.SelectedItem as Category;
+            EditCategoryWindow editCategoryWindow = new EditCategoryWindow(viewModel, selectedItem);
+            editCategoryWindow.ShowDialog();
         }
 
         private void DeleteCategoryButton_Click(object sender, RoutedEventArgs e)
         {
-            viewModel.Categories.Remove(CategoriesDataGrid.SelectedItem as Category);
+            Category selectedItem = CategoriesDataGrid.SelectedItem as Category;
+            if(selectedItem.Items.Count > 0)
+            {
+                MessageBox.Show("Kategoria ma przypisane elementy - nie można usunąć");
+            } else
+            {
+                viewModel.Categories.Remove(selectedItem);
+            }
         }
 
         private void CreateCategoryButton_Click(object sender, RoutedEventArgs e)
         {
-            //AddCategoryWindow addCategoryView = new AddCategoryWindow(viewModel);
-            //addCategoryView.ShowDialog();
+            AddCategoryWindow addCategoryView = new AddCategoryWindow(viewModel);
+            addCategoryView.ShowDialog();
         }
     }
 }

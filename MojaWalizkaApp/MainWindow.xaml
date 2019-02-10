@@ -103,7 +103,15 @@
                             </DataGridTemplateColumn>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <Button Name="AddNewItemButton" HorizontalAlignment="Right" Margin="0 20 20 0" Click="AddNewItemButton_Click">Dodaj przedmiot</Button>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="20 20 0 0">
+                        <TextBlock VerticalAlignment="Center">
+                            <Hyperlink Name="ListCategoriesButton"
+                                Style="{StaticResource MaterialDesignCaptionHyperlink}" Foreground="#6795e0" Click="ListCategoriesButton_Click">
+                                Zarządzaj kategoriami
+                            </Hyperlink>
+                        </TextBlock>
+                        <Button Name="AddNewItemButton" Margin="20 0 0 0" Click="AddNewItemButton_Click" VerticalAlignment="Center">Dodaj przedmiot</Button>
+                    </StackPanel>
                 </StackPanel>
 
             </Grid>
