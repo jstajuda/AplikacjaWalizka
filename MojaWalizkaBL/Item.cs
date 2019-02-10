@@ -63,6 +63,17 @@ namespace MojaWalizkaBL
             }
         }
 
+        private ICollection<ItemList> itemLists;
+        public virtual ICollection<ItemList> ItemLists
+        {
+            get => itemLists;
+            set
+            {
+                itemLists = value;
+                NotifyPropertyChanged();
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
         private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
         {

@@ -33,7 +33,7 @@
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="100"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
                     <RowDefinition Height="*"></RowDefinition>
                     <RowDefinition Height="Auto"></RowDefinition>
                 </Grid.RowDefinitions>
@@ -43,12 +43,16 @@
                     </Style>
                 </Grid.Resources>
 
-                <StackPanel Grid.Column="0" VerticalAlignment="Center">
+                <StackPanel Grid.Column="0" VerticalAlignment="Center" Margin="0 0 0 20">
                     <TextBox FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center"
                        FontSize="24" Foreground="#333333" Text="{Binding Path=CurrentList.Name}"></TextBox>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0 20 0 0">
+                        <Label Content="Lista predefiniowana " VerticalAlignment="Center" Padding="0" Foreground="#777777"></Label>
+                        <ToggleButton Name="IsPredefinedToggleButton" IsChecked="{Binding Path=CurrentList.IsPredefined}" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0 20 0 0">
                         <Label Content="Ostatnie zmiany: " VerticalAlignment="Center" Padding="0" Foreground="#777777"></Label>
-                        <TextBlock Text="{Binding Path=CurrentList.CreatedAt}" VerticalAlignment="Center" Padding="0" Foreground="#777777"></TextBlock>
+                        <TextBlock Name="ListUpdatedAtTextBlock"  Text="{Binding Path=CurrentList.UpdatedAt}" VerticalAlignment="Center" Padding="0" Foreground="#777777" SourceUpdated="ListUpdatedAtTextBlock_SourceUpdated"></TextBlock>
                     </StackPanel>
                 </StackPanel>
 

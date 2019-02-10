@@ -21,6 +21,8 @@ namespace MojaWalizkaDA
         public DbSet<ItemList> ItemLists { get; set; }
     }
 
+
+    //public class WalizkaAppDBInitializerProd : DropCreateDatabaseAlways<WalizkaAppContext>
     public class WalizkaAppDBInitializerProd : CreateDatabaseIfNotExists<WalizkaAppContext>
     {
         protected override void Seed(WalizkaAppContext context)
@@ -84,7 +86,10 @@ namespace MojaWalizkaDA
             {
                 Name = "Wycieczka górska",
                 Description = "Rzeczy niezbędne na szlaku",
-                Items = new ObservableCollection<Item>(items)
+                Items = new ObservableCollection<Item>(items),
+                CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.Now,
+                IsPredefined = true
             });
             context.ItemLists.Add(itemList);
             context.SaveChanges();
@@ -95,7 +100,10 @@ namespace MojaWalizkaDA
             {
                 Name = "Wyjazd służbowy",
                 Description = "Rzeczy na wyjazd służbowy",
-                Items = new ObservableCollection<Item>(items)
+                Items = new ObservableCollection<Item>(items),
+                CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.Now,
+                IsPredefined = true
             });
 
             context.ItemLists.Add(itemList);
@@ -107,11 +115,56 @@ namespace MojaWalizkaDA
             {
                 Name = "Wczasy nad morzem",
                 Description = "Rzeczy niezbędne na plażing",
-                Items = new ObservableCollection<Item>(items)
+                Items = new ObservableCollection<Item>(items),
+                CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.Now,
+                IsPredefined = true
             });
             context.ItemLists.Add(itemList);
             context.SaveChanges();
             #endregion
+
+            //Praga
+            items = context.Items.Where(i => i.Id % 3 == 0).ToList<Item>();
+            itemList = context.ItemLists.Add(new ItemList()
+            {
+                Name = "Weekend w Pradze",
+                Description = "Spontaniczny wypad ze znajomymi",
+                Items = new ObservableCollection<Item>(items),
+                CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.Now,
+                IsPredefined = false
+            });
+            context.ItemLists.Add(itemList);
+            context.SaveChanges();
+
+            //Bieszczady
+            items = context.Items.Where(i => i.Id % 3 == 1).ToList<Item>();
+            itemList = context.ItemLists.Add(new ItemList()
+            {
+                Name = "Bieszczady - jesień 2018",
+                Description = "Pobyt w schronisku na Rawce",
+                Items = new ObservableCollection<Item>(items),
+                CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.Now,
+                IsPredefined = false
+            });
+            context.ItemLists.Add(itemList);
+            context.SaveChanges();
+
+            //Warszawa
+            items = context.Items.Where(i => i.Id % 3 == 2).ToList<Item>();
+            itemList = context.ItemLists.Add(new ItemList()
+            {
+                Name = "GetNet Poznań 2017",
+                Description = "Konferencja",
+                Items = new ObservableCollection<Item>(items),
+                CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.Now,
+                IsPredefined = false
+            });
+            context.ItemLists.Add(itemList);
+            context.SaveChanges();
 
             base.Seed(context);
         }

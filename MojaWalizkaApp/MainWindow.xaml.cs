@@ -60,6 +60,15 @@ namespace MojaWalizkaApp
                 viewModel.ItemLists.Add(viewModel.CurrentList);
             }
             viewModel.ItemListsSaveChanges();
+            viewModel.ItemListsRefresh();
+            var navigationView = new MainNavigationView(viewModel);
+            MainNavigation.Content = navigationView;
+        }
+
+        private void ListUpdatedAtTextBlock_SourceUpdated(object sender, DataTransferEventArgs e)
+        {
+            ListUpdatedAtTextBlock.Text = String.IsNullOrWhiteSpace(ListUpdatedAtTextBlock.Text) ?
+                                          "Niezapisane" : viewModel.CurrentList.UpdatedAt.ToString();
         }
     }
 }

@@ -19,20 +19,20 @@ namespace MojaWalizkaDA
 
         public IQueryable<ItemList> GetAll()
         {
-            return ctx.ItemLists.Include("Items");
+            return ctx.ItemLists.Include("Items").Where(il => il.IsPredefined == false)
+                                                 .OrderByDescending(il => il.CreatedAt);
         }
 
         public IQueryable<ItemList> GetLimited(int limit)
         {
-            return ctx.ItemLists.OrderByDescending(il => il.CreatedAt).Take(limit);
+            return ctx.ItemLists.Include("Items").Where(il => il.IsPredefined == false)
+                                                 .OrderByDescending(il => il.CreatedAt)
+                                                 .Take(limit);
         }
 
-        public static IQueryable<ItemList> GetAllStatic()
+        public IQueryable<ItemList> GetPredefined()
         {
-            using (WalizkaAppContext ctx = new WalizkaAppContext())
-            {
-                return ctx.ItemLists;
-            };
+            return ctx.ItemLists.Include("Items").Where(il => il.IsPredefined == true);
         }
 
         public ItemList GetById(int id)
@@ -43,6 +43,8 @@ namespace MojaWalizkaDA
 
         public void Add(ItemList itemList)
         {
+            itemList.CreatedAt = DateTime.Now;
+            itemList.UpdatedAt = DateTime.Now;
             ctx.ItemLists.Add(itemList);
             ctx.SaveChanges();
         }
@@ -53,8 +55,9 @@ namespace MojaWalizkaDA
             ctx.SaveChanges();
         }
 
-        public void Update(Category category)
+        public void Update(ItemList itemList)
         {
+            itemList.UpdatedAt = DateTime.Now;
             ctx.SaveChanges();
         }
 
@@ -65,12 +68,4 @@ namespace MojaWalizkaDA
     }
 
 }
-
-        //public ObservableCollection<ItemList> GetLatest()
-        //{
-        //    itemLists = GetTestItemLists();
-        //    itemLists.Remove(itemLists[0]);
-        //    itemLists.Remove(itemLists[0]);
-        //    return itemLists;
-        //}
         

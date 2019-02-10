@@ -65,7 +65,7 @@ namespace MojaWalizkaBL
         }
 
         private ObservableCollection<Item> items;
-        public ObservableCollection<Item> Items
+        public virtual ObservableCollection<Item> Items
         {
             get => items;
             set
