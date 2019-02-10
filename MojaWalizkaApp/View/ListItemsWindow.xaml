@@ -40,7 +40,7 @@
             <RowDefinition Height="100"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <DataGrid Name="ItemsDataGrid" AutoGenerateColumns="False" HorizontalContentAlignment="Stretch" CellStyle="{StaticResource DataGridRowVerticalCenter}" ItemsSource="{Binding Path=CurrentList.Items}" IsReadOnly="True" 
+        <DataGrid Name="ItemsDataGrid" AutoGenerateColumns="False" HorizontalContentAlignment="Stretch" CellStyle="{StaticResource DataGridRowVerticalCenter}" IsReadOnly="True" 
                       ScrollViewer.CanContentScroll="True" 
                       ScrollViewer.VerticalScrollBarVisibility="Auto"
                       ScrollViewer.HorizontalScrollBarVisibility="Auto">

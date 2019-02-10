@@ -44,12 +44,13 @@ namespace MojaWalizkaApp.View
         private void DeleteCategoryButton_Click(object sender, RoutedEventArgs e)
         {
             Category selectedItem = CategoriesDataGrid.SelectedItem as Category;
-            if(selectedItem.Items.Count > 0)
+            if(selectedItem.Items != null && selectedItem.Items.Count > 0)
             {
                 MessageBox.Show("Kategoria ma przypisane elementy - nie można usunąć");
             } else
             {
                 viewModel.Categories.Remove(selectedItem);
+                CategoriesDataGrid.UnselectAll();
             }
         }
 

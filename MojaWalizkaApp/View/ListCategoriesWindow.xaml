@@ -39,7 +39,7 @@
             <RowDefinition Height="100"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <DataGrid Name="CategoriesDataGrid" AutoGenerateColumns="False" HorizontalContentAlignment="Stretch" CellStyle="{StaticResource DataGridRowVerticalCenter}" ItemsSource="{Binding Path=Categories}" IsReadOnly="True" 
+        <DataGrid Name="CategoriesDataGrid" AutoGenerateColumns="False" HorizontalContentAlignment="Stretch" CellStyle="{StaticResource DataGridRowVerticalCenter}" IsReadOnly="True" 
                       ScrollViewer.CanContentScroll="True" 
                       ScrollViewer.VerticalScrollBarVisibility="Auto"
                       ScrollViewer.HorizontalScrollBarVisibility="Auto">

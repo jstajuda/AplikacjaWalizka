@@ -18,7 +18,7 @@ namespace MojaWalizkaDA
 
         public IQueryable<Category> GetAll()
         {
-            return ctx.Categories;
+            return ctx.Categories.Include("Items");
         }
 
         public static IQueryable<Category> GetAllStatic()
