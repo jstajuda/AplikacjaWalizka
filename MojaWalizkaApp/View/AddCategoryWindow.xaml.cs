@@ -43,7 +43,7 @@ namespace MojaWalizkaApp.View
             if (String.IsNullOrWhiteSpace(categoryName))
             {
                 isValid = false;
-                CategoryNameLabel.Content = "Category Name (nazwa nie może być pusta!)";
+                CategoryNameLabel.Content = "Nazwa kategorii (nazwa nie może być pusta!)";
                 CategoryNameLabel.Foreground = Brushes.Red;
             }
 

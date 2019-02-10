@@ -14,7 +14,7 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         Name="ListCategoriesWindowControl"
-        Title="Categories" Width="800" Height="Auto" Loaded="ListCategoriesWindowControl_Loaded">
+        Title="Kategorie" Width="800" Height="Auto" Loaded="ListCategoriesWindowControl_Loaded">
     <Grid HorizontalAlignment="Center">
         <Grid.Resources>
             <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignFlatButton}">
@@ -44,9 +44,9 @@
                       ScrollViewer.VerticalScrollBarVisibility="Auto"
                       ScrollViewer.HorizontalScrollBarVisibility="Auto">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Category" Binding="{Binding Path=Name}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Description" Binding="{Binding Path=Description}" Width="*"></DataGridTextColumn>
-                <DataGridTemplateColumn Header="Actions">
+                <DataGridTextColumn Header="Kategoria" Binding="{Binding Path=Name}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Opis" Binding="{Binding Path=Description}" Width="*"></DataGridTextColumn>
+                <DataGridTemplateColumn Header="Akcje">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">

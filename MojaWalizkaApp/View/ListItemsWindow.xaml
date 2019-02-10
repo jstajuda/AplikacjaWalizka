@@ -14,7 +14,7 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         Name="ListItemsWindowControl"
-        Title="Items" Width="800" Height="600" Loaded="ListItemsWindowControl_Loaded">
+        Title="Przedmioty" Width="800" Height="600" Loaded="ListItemsWindowControl_Loaded">
 
     <Grid HorizontalAlignment="Center">
         <Grid.Resources>
@@ -45,10 +45,10 @@
                       ScrollViewer.VerticalScrollBarVisibility="Auto"
                       ScrollViewer.HorizontalScrollBarVisibility="Auto">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Item" Binding="{Binding Path=Name}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Category" Binding="{Binding Path=Category.Name}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Description" Binding="{Binding Path=Description}" Width="*"></DataGridTextColumn>
-                <DataGridTemplateColumn Header="Actions">
+                <DataGridTextColumn Header="Przedmiot" Binding="{Binding Path=Name}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Kategoria" Binding="{Binding Path=Category.Name}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Opis" Binding="{Binding Path=Description}" Width="*"></DataGridTextColumn>
+                <DataGridTemplateColumn Header="Akcje">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">

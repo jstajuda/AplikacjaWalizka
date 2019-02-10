@@ -14,7 +14,7 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         Name="EditItemWindowControl"
-        Title="EditItemWindow" Height="Auto" Width="440" Loaded="EditItemWindowControl_Loaded">
+        Title="Edytuj przedmiot" Height="Auto" Width="440" Loaded="EditItemWindowControl_Loaded">
     <Grid HorizontalAlignment="Center">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="150"></ColumnDefinition>
@@ -23,14 +23,14 @@
 
         <StackPanel Margin="20" Grid.ColumnSpan="2">
 
-            <Label Name="ItemNameLabel" Content="Item Name" Padding="0" Margin="0 0 0 10" FontWeight="DemiBold"></Label>
+            <Label Name="ItemNameLabel" Content="Nazwa przedmiotu" Padding="0" Margin="0 0 0 10" FontWeight="DemiBold"></Label>
             <TextBox Name="ItemNameTextBox" Grid.Column="1" Margin="0 0 0 40"></TextBox>
 
-            <Label Content="Item Short Description" Padding="0" Margin="0 0 0 10" FontWeight="DemiBold"></Label>
+            <Label Content="Krótki opis przedmiotu" Padding="0" Margin="0 0 0 10" FontWeight="DemiBold"></Label>
             <TextBox Name="ItemDescriptionTextBox" Grid.Column="1" Margin="0 0 0 40"></TextBox>
 
             <Grid>
-                <Label Name="ItemCategoryLabel" Content="Category" Padding="0" Margin="0 0 0 10" FontWeight="DemiBold"></Label>
+                <Label Name="ItemCategoryLabel" Content="Kategoria" Padding="0" Margin="0 0 0 10" FontWeight="DemiBold"></Label>
                 <TextBlock HorizontalAlignment="Right">
                     <Hyperlink Name="ListCategoriesButton"
                         Style="{StaticResource MaterialDesignCaptionHyperlink}" Foreground="#6795e0" Click="ListCategoriesButton_Click">
@@ -41,8 +41,8 @@
             <ComboBox Name="CategoriesComboBox" IsEditable="True" IsReadOnly="True" Text="Wybierz kategorię" Grid.Column="1" Margin="0 0 0 40"></ComboBox>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <Button Name="EditItemCancelButton" Content="Cancel" Click="EditItemCancelButton_Click" Style="{StaticResource MaterialDesignFlatButton}"></Button>
-                <Button Name="EditItemOkButton" Content="Save Changes" Click="EditItemOkButton_Click" Style="{StaticResource MaterialDesignFlatButton}"></Button>
+                <Button Name="EditItemCancelButton" Content="Anuluj" Click="EditItemCancelButton_Click" Style="{StaticResource MaterialDesignFlatButton}"></Button>
+                <Button Name="EditItemOkButton" Content="Zapisz zmiany" Click="EditItemOkButton_Click" Style="{StaticResource MaterialDesignFlatButton}"></Button>
             </StackPanel>
 
         </StackPanel>

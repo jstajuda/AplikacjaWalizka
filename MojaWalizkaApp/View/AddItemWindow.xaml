@@ -14,7 +14,7 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         Name="AddItemWindowControl"
-        Title="AddItemWindow" Height="Auto" Width="440" Loaded="AddItemWindowControl_Loaded">
+        Title="Nowy przedmiot" Height="Auto" Width="440" Loaded="AddItemWindowControl_Loaded">
 
     <Grid HorizontalAlignment="Center">
         <Grid.ColumnDefinitions>
@@ -24,14 +24,14 @@
         
         <StackPanel Margin="20" Grid.ColumnSpan="2">
             
-            <Label Name="ItemNameLabel" Content="Item Name" Padding="0" Margin="0 0 0 10" FontWeight="DemiBold"></Label>
+            <Label Name="ItemNameLabel" Content="Nazwa przedmiotu" Padding="0" Margin="0 0 0 10" FontWeight="DemiBold"></Label>
             <TextBox Name="NewItemNameTextBox" Grid.Column="1" Margin="0 0 0 40" MaxLength="100"></TextBox>
 
-            <Label Content="Item Short Description" Padding="0" Margin="0 0 0 10" FontWeight="DemiBold"></Label>
+            <Label Content="Krótki opis przedmiotu" Padding="0" Margin="0 0 0 10" FontWeight="DemiBold"></Label>
             <TextBox Name="NewItemDescriptionTextBox" Grid.Column="1" Margin="0 0 0 40" MaxLength="200"></TextBox>
 
             <Grid>
-                <Label Name="ItemCategoryLabel" Content="Category" Padding="0" Margin="0 0 0 10" FontWeight="DemiBold"></Label>
+                <Label Name="ItemCategoryLabel" Content="Kategoria" Padding="0" Margin="0 0 0 10" FontWeight="DemiBold"></Label>
                 <TextBlock HorizontalAlignment="Right">
                     <Hyperlink Name="ListCategoriesButton" Click="ListCategoriesButton_Click"
                         Style="{StaticResource MaterialDesignCaptionHyperlink}" Foreground="#6795e0">
@@ -42,8 +42,8 @@
             <ComboBox Name="CategoriesComboBox" IsEditable="True" IsReadOnly="True" Text="Wybierz kategorię" Grid.Column="1" Margin="0 0 0 40"></ComboBox>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <Button Name="AddItemCancelButton" Content="Cancel" Click="AddItemCancelButton_Click" Style="{StaticResource MaterialDesignFlatButton}"></Button>
-                <Button Name="AddItemOkButton" Content="Add Item" Click="AddItemOkButton_Click" Style="{StaticResource MaterialDesignFlatButton}"></Button>
+                <Button Name="AddItemCancelButton" Content="Anuluj" Click="AddItemCancelButton_Click" Style="{StaticResource MaterialDesignFlatButton}"></Button>
+                <Button Name="AddItemOkButton" Content="Dodaj przedmiot" Click="AddItemOkButton_Click" Style="{StaticResource MaterialDesignFlatButton}"></Button>
             </StackPanel>
             
         </StackPanel>

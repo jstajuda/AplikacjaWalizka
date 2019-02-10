@@ -47,13 +47,13 @@ namespace MojaWalizkaApp.View
             if (String.IsNullOrWhiteSpace(itemName))
             {
                 isValid = false;
-                ItemNameLabel.Content = "Item Name (nazwa nie może być pusta)";
+                ItemNameLabel.Content = "Nazwa przedmiotu (nazwa nie może być pusta)";
                 ItemNameLabel.Foreground = Brushes.Red;
             }
 
             if (Category == null) {
                 isValid = false;
-                ItemCategoryLabel.Content = "Category (należy wybrać kategorię)";
+                ItemCategoryLabel.Content = "Kategoria (należy wybrać kategorię)";
                 ItemCategoryLabel.Foreground = Brushes.Red;
             }
 

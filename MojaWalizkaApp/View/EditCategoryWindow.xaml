@@ -14,7 +14,7 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         Name="EditCategoryWindowControl"
-        Title="EditCategoryWindow" Height="Auto" Width="440" Loaded="EditCategoryWindowControl_Loaded">
+        Title="Edytuj kategorię" Height="Auto" Width="440" Loaded="EditCategoryWindowControl_Loaded">
     
     <Grid HorizontalAlignment="Center">
         <Grid.ColumnDefinitions>
@@ -24,15 +24,15 @@
 
         <StackPanel Margin="20" Grid.ColumnSpan="2">
 
-            <Label Name="CategoryNameLabel"  Content="Category Name" Padding="0" Margin="0 0 0 10" FontWeight="DemiBold"></Label>
+            <Label Name="CategoryNameLabel"  Content="Nazwa kategorii" Padding="0" Margin="0 0 0 10" FontWeight="DemiBold"></Label>
             <TextBox Name="CategoryNameTextBox" Grid.Column="1" Margin="0 0 0 40" MaxLength="100"></TextBox>
 
-            <Label Content="Category Short Description" Padding="0" Margin="0 0 0 10" FontWeight="DemiBold"></Label>
+            <Label Content="Krótki opis kategorii" Padding="0" Margin="0 0 0 10" FontWeight="DemiBold"></Label>
             <TextBox Name="CategoryDescriptionTextBox" Grid.Column="1" Margin="0 0 0 40" MaxLength="200"></TextBox>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <Button Name="EditCategoryCancelButton" Content="Cancel" Click="EditCategoryCancelButton_Click" Style="{StaticResource MaterialDesignFlatButton}"></Button>
-                <Button Name="EditCategoryOkButton" Content="Save Changes" Click="EditCategoryOkButton_Click" Style="{StaticResource MaterialDesignFlatButton}"></Button>
+                <Button Name="EditCategoryCancelButton" Content="Anuluj" Click="EditCategoryCancelButton_Click" Style="{StaticResource MaterialDesignFlatButton}"></Button>
+                <Button Name="EditCategoryOkButton" Content="Zapisz zmiany" Click="EditCategoryOkButton_Click" Style="{StaticResource MaterialDesignFlatButton}"></Button>
             </StackPanel>
 
         </StackPanel>
