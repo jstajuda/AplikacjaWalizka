@@ -23,14 +23,14 @@
 
         <StackPanel Margin="20" Grid.ColumnSpan="2">
 
-            <Label Content="Item Name" Padding="0" Margin="0 0 0 10" FontWeight="DemiBold"></Label>
+            <Label Name="ItemNameLabel" Content="Item Name" Padding="0" Margin="0 0 0 10" FontWeight="DemiBold"></Label>
             <TextBox Name="ItemNameTextBox" Grid.Column="1" Margin="0 0 0 40"></TextBox>
 
             <Label Content="Item Short Description" Padding="0" Margin="0 0 0 10" FontWeight="DemiBold"></Label>
             <TextBox Name="ItemDescriptionTextBox" Grid.Column="1" Margin="0 0 0 40"></TextBox>
 
             <Grid>
-                <Label Content="Category" Padding="0" Margin="0 0 0 10" FontWeight="DemiBold"></Label>
+                <Label Name="ItemCategoryLabel" Content="Category" Padding="0" Margin="0 0 0 10" FontWeight="DemiBold"></Label>
                 <TextBlock HorizontalAlignment="Right">
                     <Hyperlink Name="ListCategoriesButton"
                         Style="{StaticResource MaterialDesignCaptionHyperlink}" Foreground="#6795e0" Click="ListCategoriesButton_Click">

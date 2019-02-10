@@ -34,29 +34,39 @@ namespace MojaWalizkaApp.View
         {
             CategoriesComboBox.ItemsSource = viewModel.Categories;
             CategoriesComboBox.DisplayMemberPath = "Name";
-
-
-            //NewItemNameTextBox.GotFocus += RemoveText;
-            //NewItemNameTextBox.LostFocus += AddText;
-            //NewItemNameTextBox.Text = "Nowy przedmiot";
-            //NewItemDescriptionTextBox.Text = "Opis przedmiotu";
         }
 
         private void AddItemOkButton_Click(object sender, RoutedEventArgs e)
         {
-            //WAŻNE - WALIDACJA DANYCH
+            bool isValid = true;
+
             string itemName = NewItemNameTextBox.Text;
             string itemDescription = NewItemDescriptionTextBox.Text;
             Category Category = CategoriesComboBox.SelectedItem as Category;
 
-            this.viewModel.Items.Add(new Item()
+            if (String.IsNullOrWhiteSpace(itemName))
             {
-                Name = itemName,
-                Description = itemDescription,
-                CategoryId = Category.Id
-            });
+                isValid = false;
+                ItemNameLabel.Content = "Item Name (nazwa nie może być pusta)";
+                ItemNameLabel.Foreground = Brushes.Red;
+            }
 
-            this.Close();
+            if (Category == null) {
+                isValid = false;
+                ItemCategoryLabel.Content = "Category (należy wybrać kategorię)";
+                ItemCategoryLabel.Foreground = Brushes.Red;
+            }
+
+            if(isValid)
+            {
+                this.viewModel.Items.Add(new Item()
+                {
+                    Name = itemName.Trim(),
+                    Description = itemDescription.Trim(),
+                    CategoryId = Category.Id
+                });
+                this.Close();
+            }
         }
 
         private void AddItemCancelButton_Click(object sender, RoutedEventArgs e)
@@ -70,19 +80,5 @@ namespace MojaWalizkaApp.View
             listCategoriesView.ShowDialog();
         }
 
-
-
-
-
-        //public void RemoveText(object sender, EventArgs e)
-        //{
-        //    NewItemNameTextBox.Text = "";
-        //}
-
-        //public void AddText(object sender, EventArgs e)
-        //{
-        //    if (string.IsNullOrWhiteSpace(NewItemNameTextBox.Text))
-        //        NewItemNameTextBox.Text = "Nowy przedmiot";
-        //}
     }
 }
