@@ -34,3 +34,7 @@ Listy przedmiotów zapisywane są w bazie danych Sql Server Compact.
 
 - Aplikacja zainstalowana w domyślnej lokalizacj (C:\Program Files(x86)\) do uruchomienia wymaga uprawnień administratora.
 - Aplikacja zainstalowana w katalogu użytkownika nie wymaga dodatkowych uprawnień.
+
+## Autorzy
+- Krzysztof Piotrowski
+- Jarosław Stajuda
