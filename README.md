@@ -35,6 +35,7 @@ Listy przedmiotów zapisywane są w bazie danych Sql Server Compact.
 - Aplikacja zainstalowana w domyślnej lokalizacj (C:\Program Files(x86)\) do uruchomienia wymaga uprawnień administratora.
 - Aplikacja zainstalowana w katalogu użytkownika nie wymaga dodatkowych uprawnień.
 - Build instalatora należy wykonać w trybie Release (warunkowo dołączany jest odpowiedni plik app.manifest)
+- Instalator wymaga dodatku do Visual Studio: Microsoft Visual Studio Installer Projects (https://marketplace.visualstudio.com/items?itemName=VisualStudioClient.MicrosoftVisualStudio2017InstallerProjects)
 
 ## Autorzy
 - Krzysztof Piotrowski
