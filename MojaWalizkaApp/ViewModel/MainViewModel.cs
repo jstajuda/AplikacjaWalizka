@@ -126,6 +126,15 @@ namespace MojaWalizkaApp.ViewModel
             categoryRepository.Save();
         }
 
+        public void ItemListsRefresh()
+        {
+            ItemLists = new ObservableCollection<ItemList>(itemListRepository.GetAll());
+            ItemLists.CollectionChanged += List_CollectionChanged;
+
+            PredefinedLists = new ObservableCollection<ItemList>(itemListRepository.GetPredefined());
+            PredefinedLists.CollectionChanged += List_CollectionChanged;
+        }
+
         private void List_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
             ItemList itemList;

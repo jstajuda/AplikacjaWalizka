@@ -3,13 +3,16 @@ using MojaWalizkaApp.ViewModel;
 using MojaWalizkaBL;
 using MojaWalizkaDA;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -72,6 +75,7 @@ namespace MojaWalizkaApp
                     viewModel.ItemLists.Add(viewModel.CurrentList);
                 }
                 viewModel.ItemListsSaveChanges();
+                viewModel.ItemListsRefresh();
 
                 var navigationView = new MainNavigationView(viewModel);
                 MainNavigation.Content = navigationView;
@@ -88,6 +92,16 @@ namespace MojaWalizkaApp
         {
             ListCategoriesWindow listCategoriesView = new ListCategoriesWindow(viewModel);
             listCategoriesView.ShowDialog();
+        }
+
+        private void ExportToPdfButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Sorry, not implemented yet.");
+        }
+
+        private void PrintButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Sorry, not implemented yet.");
         }
     }
 }

@@ -60,14 +60,11 @@
                 </StackPanel>
 
                 <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
-                    <Button ToolTip="Drukuj">
+                    <Button Name="PrintButton" ToolTip="Drukuj" Click="PrintButton_Click">
                         Drukuj
                     </Button>
-                    <Button ToolTip="Eskportuj do CSV">
-                        Eksportuj do CSV
-                    </Button>
-                    <Button ToolTip="Importuj z CSV">
-                        Importuj z CSV
+                    <Button Name="ExportToPdfButton" ToolTip="Eskportuj do PDF" Click="ExportToPdfButton_Click">
+                        Eksportuj do PDF
                     </Button>
                     <Button Name="SaveListButton" ToolTip="Zapisz zmiany" Click="SaveListButton_Click">
                         Zapisz
